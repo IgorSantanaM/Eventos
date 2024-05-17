@@ -2252,11 +2252,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos.IO.Domain.csproj",
+      "projectUniqueName": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos.IO.Domain.csproj",
       "projectName": "Eventos.IO.Domain",
-      "projectPath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos.IO.Domain.csproj",
+      "projectPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos.IO.Domain.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain\\obj\\",
+      "outputPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2273,8 +2273,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj": {
-              "projectPath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj"
+            "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj": {
+              "projectPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj"
             }
           }
         }

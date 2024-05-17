@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Eventos.IO.Infra.Data\\Eventos.IO.Infra.Data.csproj|d:\\users\\usuario\\works\\eventos\\eventos.io\\src\\eventos.io.infra.data\\mappings\\categoriamapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Eventos.IO.Infra.Data\\Eventos.IO.Infra.Data.csproj|solutionrelative:src\\eventos.io.infra.data\\mappings\\categoriamapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A7E722D5-377F-4DCE-A5B1-547404B1E16F}|src\\Eventos.IO.Application\\Eventos.IO.Application.csproj|d:\\users\\usuario\\works\\eventos\\eventos.io\\src\\eventos.io.application\\eventos.io.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A7E722D5-377F-4DCE-A5B1-547404B1E16F}|src\\Eventos.IO.Application\\Eventos.IO.Application.csproj|solutionrelative:src\\eventos.io.application\\eventos.io.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -57,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Eventos.IO.Infra.Data\\Eventos.IO.Infra.Data.csproj|d:\\users\\usuario\\works\\eventos\\eventos.io\\src\\eventos.io.infra.data\\mappings\\organizadormapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Eventos.IO.Infra.Data\\Eventos.IO.Infra.Data.csproj|solutionrelative:src\\eventos.io.infra.data\\mappings\\organizadormapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Eventos.IO.Infra.Data\\Eventos.IO.Infra.Data.csproj|d:\\users\\usuario\\works\\eventos\\eventos.io\\src\\eventos.io.infra.data\\mappings\\categoriamapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Eventos.IO.Infra.Data\\Eventos.IO.Infra.Data.csproj|solutionrelative:src\\eventos.io.infra.data\\mappings\\categoriamapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Eventos.IO.Infra.Data\\Eventos.IO.Infra.Data.csproj|d:\\users\\usuario\\works\\eventos\\eventos.io\\src\\eventos.io.infra.data\\mappings\\eventomapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -205,7 +205,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -234,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Eventos.IO.Application.csproj",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Application\\Eventos.IO.Application.csproj",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Application\\Eventos.IO.Application.csproj",
@@ -248,6 +248,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "CommandResponse.cs",
+              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
+              "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
+              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
+              "RelativeToolTip": "src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAUwA0AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T02:53:25.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CommandHandler.cs",
+              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
+              "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
+              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
+              "RelativeToolTip": "src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T02:31:08.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoriaMapping.cs",
+              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
+              "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
+              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
+              "RelativeToolTip": "src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T21:37:58.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
+              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
+              "RelativeToolTip": "src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T22:20:09.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "IUnityOfWork.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\UoW\\IUnityOfWork.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\UoW\\IUnityOfWork.cs",
@@ -260,42 +309,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
-              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
-              "RelativeToolTip": "src\\Eventos.IO.Infra.Data\\UoW\\UnitOfWork.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T22:20:09.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CommandResponse.cs",
-              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
-              "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
-              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
-              "RelativeToolTip": "src\\Eventos.IO.Domain\\Eventos\\Commands\\CommandResponse.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAUwA0AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T02:53:25.444Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CommandHandler.cs",
-              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
-              "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
-              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
-              "RelativeToolTip": "src\\Eventos.IO.Domain\\CommandHandlers\\CommandHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T02:31:08.957Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "EventoRepository.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Repository\\EventoRepository.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\Repository\\EventoRepository.cs",
@@ -307,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AtualizarEventoCommand.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Commands\\AtualizarEventoCommand.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\Eventos\\Commands\\AtualizarEventoCommand.cs",
@@ -319,7 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IEventoRepository.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Repository\\IEventoRepository.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\Eventos\\Repository\\IEventoRepository.cs",
@@ -331,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Evento.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Evento.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\Eventos\\Evento.cs",
@@ -343,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Repository.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Repository\\Repository.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\Repository\\Repository.cs",
@@ -367,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "OrganizadorMapping.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Mappings\\OrganizadorMapping.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\Mappings\\OrganizadorMapping.cs",
@@ -379,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "EnderecoMapping.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Mappings\\EnderecoMapping.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\Mappings\\EnderecoMapping.cs",
@@ -391,7 +404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Endereco.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos\\Endereco.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Domain\\Eventos\\Endereco.cs",
@@ -403,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "EventosContext.cs",
               "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Context\\EventosContext.cs",
               "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\Context\\EventosContext.cs",
@@ -412,18 +425,6 @@
               "ViewState": "AQIAABQAAAAAAAAAAAAqwB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T02:03:06.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CategoriaMapping.cs",
-              "DocumentMoniker": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
-              "RelativeDocumentMoniker": "src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
-              "ToolTip": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
-              "RelativeToolTip": "src\\Eventos.IO.Infra.Data\\Mappings\\CategoriaMapping.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAqwBIAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T21:37:58.547Z"
             },
             {
               "$type": "Document",

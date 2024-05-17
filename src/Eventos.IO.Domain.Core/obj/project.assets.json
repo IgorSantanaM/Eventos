@@ -55,11 +55,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj",
+      "projectUniqueName": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj",
       "projectName": "Eventos.IO.Domain.Core",
-      "projectPath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj",
+      "projectPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\obj\\",
+      "outputPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

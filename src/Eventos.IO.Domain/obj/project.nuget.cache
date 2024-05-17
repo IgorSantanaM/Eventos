@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L0sU9Yc/QKit8/aXHEhqvmTxA/AQ5/C3COdUlJeNkS1g7HKveU3oMlwQJcoMr8tJQC5Jem6TvzhQzdRIaBtMXQ==",
+  "dgSpecHash": "2xS6gCuC6m76PjDFfx56tPv0DujXMCm5T9ODgjwnisqtKVCfA/gmnfQZzth7M5Xfoo5KaCabg/Q5dUDC6ydFYg==",
   "success": true,
-  "projectFilePath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos.IO.Domain.csproj",
+  "projectFilePath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Domain\\Eventos.IO.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.9.1\\fluentvalidation.11.9.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Application\\Eventos.IO.Application.csproj",
+      "projectUniqueName": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Application\\Eventos.IO.Application.csproj",
       "projectName": "Eventos.IO.Application",
-      "projectPath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Application\\Eventos.IO.Application.csproj",
+      "projectPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Application\\Eventos.IO.Application.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Application\\obj\\",
+      "outputPath": "D:\\users\\Usuario\\works\\Eventos\\Eventos.IO\\src\\Eventos.IO.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
