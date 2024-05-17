@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "myL7MWS1iRY2iKKUr/WQ37MC7+Xa0zj0Ed9P4DO6yjSNnMflgYytNINRUnbRx1vP5M4l1BJV+AZHmQ/BQi+Z9Q==",
+  "success": true,
+  "projectFilePath": "D:\\users\\Usuario\\works\\Eventos.IO\\src\\Eventos.IO.Domain.Core\\Eventos.IO.Domain.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.9.1\\fluentvalidation.11.9.1.nupkg.sha512"
+  ],
+  "logs": []
+}
