@@ -1,0 +1,12 @@
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\bin\Debug\net8.0\Eventos.IO.Application.deps.json
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\bin\Debug\net8.0\Eventos.IO.Application.dll
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\bin\Debug\net8.0\Eventos.IO.Application.pdb
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Eventos.IO.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Eventos.IO.Application.AssemblyInfoInputs.cache
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Eventos.IO.Application.AssemblyInfo.cs
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Eventos.IO.Application.csproj.CoreCompileInputs.cache
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Eventos.IO.Application.sourcelink.json
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Eventos.IO.Application.dll
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\refint\Eventos.IO.Application.dll
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Eventos.IO.Application.pdb
+C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\ref\Eventos.IO.Application.dll
