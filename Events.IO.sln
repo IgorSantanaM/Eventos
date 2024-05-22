@@ -17,13 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Data", "5.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 - CrossCutting", "{D5EF6DBC-BB36-44AD-A9FB-57A3C250EA5C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Domain", "src\Eventos.IO.Domain\Events.IO.Domain.csproj", "{4D989624-A068-4E64-B033-298F9F131D7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Domain", "src\Events.IO.Domain\Events.IO.Domain.csproj", "{4D989624-A068-4E64-B033-298F9F131D7F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Domain.Core", "src\Eventos.IO.Domain.Core\Events.IO.Domain.Core.csproj", "{213A1F4C-C462-45D7-AB85-292C7F956183}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Domain.Core", "src\Events.IO.Domain.Core\Events.IO.Domain.Core.csproj", "{213A1F4C-C462-45D7-AB85-292C7F956183}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Infra.Data", "src\Eventos.IO.Infra.Data\Events.IO.Infra.Data.csproj", "{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Infra.Data", "src\Events.IO.Infra.Data\Events.IO.Infra.Data.csproj", "{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Application", "src\Eventos.IO.Application\Events.IO.Application.csproj", "{A7E722D5-377F-4DCE-A5B1-547404B1E16F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Application", "src\Events.IO.Application\Events.IO.Application.csproj", "{A7E722D5-377F-4DCE-A5B1-547404B1E16F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

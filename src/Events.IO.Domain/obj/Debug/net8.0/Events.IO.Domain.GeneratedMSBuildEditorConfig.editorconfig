@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Events.IO.Domain
-build_property.ProjectDir = C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Domain\
+build_property.ProjectDir = D:\users\Usuario\works\Events\Events\src\Events.IO.Domain\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

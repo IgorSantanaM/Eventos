@@ -1,10 +1,10 @@
 ﻿using Events.IO.Domain.CommandHandlers;
+using Events.IO.Domain.Core.Bus;
 using Events.IO.Domain.Core.Events;
+using Events.IO.Domain.Core.Notifications;
+using Events.IO.Domain.DEvents.Events;
 using Events.IO.Domain.DEvents.Repository;
 using Events.IO.Domain.Interface;
-using Events.IO.Domain.Core.Bus;
-using Events.IO.Domain.DEvents.Events;
-using Events.IO.Domain.Core.Notifications;
 
 namespace Events.IO.Domain.DEvents.Commands
 {
@@ -13,11 +13,11 @@ namespace Events.IO.Domain.DEvents.Commands
         IHandler<DeleteEventCommand>,
         IHandler<UpdateEventCommand>
     {
-        private readonly IEventRepository _eventoRepository;
+        private readonly IEventRepository _eventRepository;
         private readonly IBus _bus;
-        public EventCommandHandler(IEventRepository eventoRepository, IUnitOfWork uow, IBus bus, IDomainNotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
+        public EventCommandHandler(IEventRepository eventRepository, IUnitOfWork uow, IBus bus, IDomainNotificationHandler<DomainNotification> notifications) : base(uow, bus, notifications)
         {
-            _eventoRepository = eventoRepository;
+            _eventRepository = eventRepository;
             _bus = bus;
         }
         public void Handle(RegistryEventCommand message)
@@ -37,26 +37,26 @@ namespace Events.IO.Domain.DEvents.Commands
                 message.Address,
                 message.Category.Id);
 
-            if (!EventoValido(devent)) return;
+            if (!ValidEvent(devent)) return;
 
-            _eventoRepository.Add(devent);
+            _eventRepository.Add(devent);
 
 
             if (Commit())
             {
-                Console.WriteLine("Evento registrado");
+                Console.WriteLine("Event registred");
                 _bus.RaiseEvent(new EventRegistradeEvent(devent.Id, devent.Name, devent.BeginDate, devent.EndDate, devent.Free, devent.Value, devent.Online, devent.CompanyName));
             }
         }
         public void Handle(UpdateEventCommand message)
         {
-            var eventoAtual = _eventoRepository.GetByID(message.Id);
-            if (!EventoExistente(message.Id, message.MessageType)) return;  
-            var evento = DEvent.EventFactory.NewCompletedEvent(message.Id, message.Name, message.ShortDescription, message.LongDescription, message.BeginDate, message.EndDate, message.Free, message.Value, message.Online, message.CompanyName, message.HostId, eventoAtual.Address, message.Category.Id);
+            var eventAtual = _eventRepository.GetByID(message.Id);
+            if (!EventoExistente(message.Id, message.MessageType)) return;
+            var evento = DEvent.EventFactory.NewCompletedEvent(message.Id, message.Name, message.ShortDescription, message.LongDescription, message.BeginDate, message.EndDate, message.Free, message.Value, message.Online, message.CompanyName, message.HostId, message.Address, message.Category.Id);
 
-            if (!EventoValido(evento)) return;
+            if (!ValidEvent(evento)) return;
 
-            _eventoRepository.Update(evento);
+            _eventRepository.Update(evento);
 
             if (Commit())
             {
@@ -67,14 +67,14 @@ namespace Events.IO.Domain.DEvents.Commands
         {
             if (!EventoExistente(message.Id, message.MessageType)) return;
 
-            _eventoRepository.Remove(message.Id);
+            _eventRepository.Remove(message.Id);
 
             if (Commit())
             {
                 _bus.RaiseEvent(new EventDeletedEvent(message.Id));
             }
         }
-        private bool EventoValido(DEvent evento)
+        private bool ValidEvent(DEvent evento)
         {
             if (evento.IsValidate()) return true;
 
@@ -84,7 +84,7 @@ namespace Events.IO.Domain.DEvents.Commands
         }
         private bool EventoExistente(Guid id, string messageType)
         {
-            var evento = _eventoRepository.GetByID(id);
+            var evento = _eventRepository.GetByID(id);
 
             if (evento != null) return true;
 

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Gq5Sd9uJnL+VvLBaaL5NinS9yPS3EOCkCJtd3QaK8uLakUTJ7Y03gfdFOBIqNZl8aOzIFv+dY0fpKR/Ufw6kGw==",
+  "dgSpecHash": "gI80MjuCtAV+V4jxi6HUm6/j7bImuUM0DLDUdkQ5YZmzqyIEzwi7dDvHPX9vFNz3Ficw36FeVi020s50R5QiCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Eventos.IO.Domain.Core\\Events.IO.Domain.Core.csproj",
+  "projectFilePath": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\paulo.kinjo\\.nuget\\packages\\fluentvalidation\\11.9.1\\fluentvalidation.11.9.1.nupkg.sha512"
+    "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.9.1\\fluentvalidation.11.9.1.nupkg.sha512"
   ],
   "logs": []
 }

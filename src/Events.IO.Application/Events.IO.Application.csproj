@@ -14,9 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Eventos.IO.Domain.Core\Events.IO.Domain.Core.csproj" />
-    <ProjectReference Include="..\Eventos.IO.Domain\Events.IO.Domain.csproj" />
-    <ProjectReference Include="..\Eventos.IO.Infra.Data\Events.IO.Infra.Data.csproj" />
+    <ProjectReference Include="..\Events.IO.Domain.Core\Events.IO.Domain.Core.csproj" />
+    <ProjectReference Include="..\Events.IO.Domain\Events.IO.Domain.csproj" />
+    <ProjectReference Include="..\Events.IO.Infra.Data\Events.IO.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

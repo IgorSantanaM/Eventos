@@ -1,0 +1,6 @@
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.csproj.AssemblyReference.cache
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.AssemblyInfoInputs.cache
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.AssemblyInfo.cs
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.csproj.CoreCompileInputs.cache
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.sourcelink.json

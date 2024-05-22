@@ -2234,13 +2234,12 @@
     },
     "Events.IO.Domain.Core/1.0.0": {
       "type": "project",
-      "path": "../Eventos.IO.Domain.Core/Events.IO.Domain.Core.csproj",
-      "msbuildProject": "../Eventos.IO.Domain.Core/Events.IO.Domain.Core.csproj"
+      "path": "../Events.IO.Domain.Core/Events.IO.Domain.Core.csproj",
+      "msbuildProject": "../Events.IO.Domain.Core/Events.IO.Domain.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj",
       "Events.IO.Domain.Core >= 1.0.0",
       "FluentValidation >= 11.9.1",
       "Microsoft.EntityFrameworkCore >= 8.0.5",
@@ -2248,46 +2247,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\paulo.kinjo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Eventos.IO.Domain\\Events.IO.Domain.csproj",
+      "projectUniqueName": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain\\Events.IO.Domain.csproj",
       "projectName": "Events.IO.Domain",
-      "projectPath": "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Eventos.IO.Domain\\Events.IO.Domain.csproj",
-      "packagesPath": "C:\\Users\\paulo.kinjo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Eventos.IO.Domain\\obj\\",
+      "projectPath": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain\\Events.IO.Domain.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\paulo.kinjo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Eventos.IO.Domain.Core\\Events.IO.Domain.Core.csproj": {
-              "projectPath": "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Eventos.IO.Domain.Core\\Events.IO.Domain.Core.csproj"
-            },
-            "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj": {
-              "projectPath": "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj"
+            "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj": {
+              "projectPath": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj"
             }
           }
         }
@@ -2336,19 +2323,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\paulo.kinjo\\Downloads\\Igor\\Events\\Eventos\\src\\Events.IO.Domain.Core\\Events.IO.Domain.Core.csproj",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

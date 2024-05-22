@@ -1,6 +1,6 @@
-C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Events.IO.Application.csproj.AssemblyReference.cache
-C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Events.IO.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Events.IO.Application.AssemblyInfoInputs.cache
-C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Events.IO.Application.AssemblyInfo.cs
-C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Events.IO.Application.csproj.CoreCompileInputs.cache
-C:\Users\paulo.kinjo\Downloads\Igor\Events\Eventos\src\Eventos.IO.Application\obj\Debug\net8.0\Events.IO.Application.sourcelink.json
+D:\users\Usuario\works\Events\Events\src\Events.IO.Application\obj\Debug\net8.0\Events.IO.Application.csproj.AssemblyReference.cache
+D:\users\Usuario\works\Events\Events\src\Events.IO.Application\obj\Debug\net8.0\Events.IO.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\users\Usuario\works\Events\Events\src\Events.IO.Application\obj\Debug\net8.0\Events.IO.Application.AssemblyInfoInputs.cache
+D:\users\Usuario\works\Events\Events\src\Events.IO.Application\obj\Debug\net8.0\Events.IO.Application.AssemblyInfo.cs
+D:\users\Usuario\works\Events\Events\src\Events.IO.Application\obj\Debug\net8.0\Events.IO.Application.csproj.CoreCompileInputs.cache
+D:\users\Usuario\works\Events\Events\src\Events.IO.Application\obj\Debug\net8.0\Events.IO.Application.sourcelink.json
