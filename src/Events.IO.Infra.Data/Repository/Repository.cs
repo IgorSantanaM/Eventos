@@ -31,7 +31,7 @@ namespace Events.IO.Infra.Data.Repository
             return DbSet.ToList();
         }
 
-        public TEntity GetByID(Guid id)
+        public TEntity GetById(Guid id)
         {
             return DbSet.AsNoTracking().FirstOrDefault(t => t.Id == id);
         }

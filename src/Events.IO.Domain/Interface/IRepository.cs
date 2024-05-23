@@ -6,7 +6,7 @@ namespace Events.IO.Domain.Interface
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity<TEntity>
     {
         void Add(TEntity obj);
-        TEntity GetByID(Guid id);
+        TEntity GetById(Guid id);
         IEnumerable<TEntity> GetAll();
         void Update(TEntity obj);
         void Remove(Guid id);

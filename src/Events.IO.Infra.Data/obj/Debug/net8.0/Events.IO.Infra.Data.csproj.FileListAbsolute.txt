@@ -4,3 +4,17 @@ D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\E
 D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.AssemblyInfo.cs
 D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.csproj.CoreCompileInputs.cache
 D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.sourcelink.json
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Infra.Data.deps.json
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Infra.Data.runtimeconfig.json
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Infra.Data.dll
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Infra.Data.pdb
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Domain.Core.dll
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Domain.dll
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Domain.Core.pdb
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\bin\Debug\net8.0\Events.IO.Domain.pdb
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.I.45B86A18.Up2Date
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.dll
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\refint\Events.IO.Infra.Data.dll
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.pdb
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\Events.IO.Infra.Data.genruntimeconfig.cache
+D:\users\Usuario\works\Events\Events\src\Events.IO.Infra.Data\obj\Debug\net8.0\ref\Events.IO.Infra.Data.dll

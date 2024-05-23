@@ -3,6 +3,8 @@
     public class RegistryEventCommand : BaseEventCommand
     {
         public RegistryEventCommand(string name,
+            string shortDesc,
+            string longDesc,
             DateTime beginDate,
             DateTime endDate,
             bool free,
@@ -10,10 +12,13 @@
             bool online,
             string companyName,
             Guid hostId,
-            Address address,
-            Category category)
+            Guid categoryId,
+            IncludeAddressEventCommand address
+            )
         {
             Name = name;
+            ShortDescription = shortDesc;
+            LongDescription = longDesc;
             BeginDate = beginDate;
             EndDate = endDate;
             Free = free;
@@ -21,9 +26,9 @@
             Online = online;
             CompanyName = companyName;
             HostId = hostId;
+            CategoryId = categoryId;
             Address = address;
-            Category = category;
-
         }
+        public IncludeAddressEventCommand Address { get; set; }
     }
 }

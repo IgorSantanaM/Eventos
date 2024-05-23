@@ -18,7 +18,7 @@ namespace Events.IO.Domain.DEvents
         //EF
         public virtual DEvent DEvent { get; private set; }
 
-        public Address(Guid id, string publicPlace, string number, string complement, string neighborhood, string zipCode, string city, string state, Guid? eventId, DEvent dvent)
+        public Address(Guid id, string publicPlace, string number, string complement, string neighborhood, string zipCode, string city, string state, Guid? eventId)
         {
             Id = id;
             PublicPlace = publicPlace;
@@ -28,7 +28,7 @@ namespace Events.IO.Domain.DEvents
             ZipCode = zipCode;
             City = city;
             State = state;
-            eventId = eventId;
+            EventId = eventId;
 
         }
         //contrutor EF

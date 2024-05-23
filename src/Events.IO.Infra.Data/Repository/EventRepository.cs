@@ -32,7 +32,7 @@ namespace Events.IO.Infra.Data.Repository
         {
             return Db.DEvents.Where(e => e.HostId == hostId);
         }
-        public override DEvent GetById(Guid id)
+        public DEvent GetById(Guid id)
         {
             return Db.DEvents.Include(e => e.Address).FirstOrDefault(e => e.Id == id); 
         }

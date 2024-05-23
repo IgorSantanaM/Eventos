@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\users\\Usuario\\works\\Events\\Events\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Events.IO.Infra.Data\\Events.IO.Infra.Data.csproj|d:\\users\\usuario\\works\\events\\events\\src\\events.io.infra.data\\repository\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B8BA441-9BBA-4CAB-B249-8B2E8E270FC8}|src\\Events.IO.Infra.Data\\Events.IO.Infra.Data.csproj|solutionrelative:src\\events.io.infra.data\\repository\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E50A05AB-E971-4397-8674-03C13F599422}|src\\Events.IO.Web\\Events.IO.Web.csproj|d:\\users\\usuario\\works\\events\\events\\src\\events.io.web\\events.io.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E50A05AB-E971-4397-8674-03C13F599422}|src\\Events.IO.Web\\Events.IO.Web.csproj|solutionrelative:src\\events.io.web\\events.io.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D989624-A068-4E64-B033-298F9F131D7F}|src\\Events.IO.Domain\\Events.IO.Domain.csproj|d:\\users\\usuario\\works\\events\\events\\src\\events.io.domain\\devents\\commands\\eventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D989624-A068-4E64-B033-298F9F131D7F}|src\\Events.IO.Domain\\Events.IO.Domain.csproj|solutionrelative:src\\events.io.domain\\devents\\commands\\eventcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E50A05AB-E971-4397-8674-03C13F599422}|src\\Events.IO.Web\\Events.IO.Web.csproj|d:\\users\\usuario\\works\\events\\events\\src\\events.io.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E50A05AB-E971-4397-8674-03C13F599422}|src\\Events.IO.Web\\Events.IO.Web.csproj|solutionrelative:src\\events.io.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EventRepository.cs",
-              "DocumentMoniker": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Infra.Data\\Repository\\EventRepository.cs",
-              "RelativeDocumentMoniker": "src\\Events.IO.Infra.Data\\Repository\\EventRepository.cs",
-              "ToolTip": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Infra.Data\\Repository\\EventRepository.cs",
-              "RelativeToolTip": "src\\Events.IO.Infra.Data\\Repository\\EventRepository.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAIwCgAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "src\\Events.IO.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "src\\Events.IO.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T02:07:02.928Z",
+              "WhenOpened": "2024-05-23T03:51:56.154Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EventCommandHandler.cs",
-              "DocumentMoniker": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain\\DEvents\\Commands\\EventCommandHandler.cs",
-              "RelativeDocumentMoniker": "src\\Events.IO.Domain\\DEvents\\Commands\\EventCommandHandler.cs",
-              "ToolTip": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Domain\\DEvents\\Commands\\EventCommandHandler.cs",
-              "RelativeToolTip": "src\\Events.IO.Domain\\DEvents\\Commands\\EventCommandHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T01:59:22.647Z",
+              "DocumentIndex": 0,
+              "Title": "Events.IO.Web",
+              "DocumentMoniker": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Web\\Events.IO.Web.csproj",
+              "RelativeDocumentMoniker": "src\\Events.IO.Web\\Events.IO.Web.csproj",
+              "ToolTip": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Web\\Events.IO.Web.csproj",
+              "RelativeToolTip": "src\\Events.IO.Web\\Events.IO.Web.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-23T03:46:28.654Z",
               "EditorCaption": ""
             }
           ]

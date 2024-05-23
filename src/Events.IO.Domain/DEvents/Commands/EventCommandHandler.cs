@@ -21,7 +21,9 @@ namespace Events.IO.Domain.DEvents.Commands
             _bus = bus;
         }
         public void Handle(RegistryEventCommand message)
-        {
+        { 
+            var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
+        
             var devent = DEvent.EventFactory.NewCompletedEvent(
                 message.Id,
                 message.Name,
@@ -34,8 +36,8 @@ namespace Events.IO.Domain.DEvents.Commands
                 message.Online,
                 message.CompanyName,
                 message.HostId,
-                message.Address,
-                message.Category.Id);
+                address,
+                message.CategoryId);
 
             if (!ValidEvent(devent)) return;
 
@@ -50,9 +52,9 @@ namespace Events.IO.Domain.DEvents.Commands
         }
         public void Handle(UpdateEventCommand message)
         {
-            var eventAtual = _eventRepository.GetByID(message.Id);
+            var actualEvent = _eventRepository.GetById(message.Id);
             if (!EventoExistente(message.Id, message.MessageType)) return;
-            var evento = DEvent.EventFactory.NewCompletedEvent(message.Id, message.Name, message.ShortDescription, message.LongDescription, message.BeginDate, message.EndDate, message.Free, message.Value, message.Online, message.CompanyName, message.HostId, message.Address, message.Category.Id);
+            var evento = DEvent.EventFactory.NewCompletedEvent(message.Id, message.Name, message.ShortDescription, message.LongDescription, message.BeginDate, message.EndDate, message.Free, message.Value, message.Online, message.CompanyName, message.HostId, actualEvent.Address, message.CategoryId);
 
             if (!ValidEvent(evento)) return;
 
@@ -84,7 +86,7 @@ namespace Events.IO.Domain.DEvents.Commands
         }
         private bool EventoExistente(Guid id, string messageType)
         {
-            var evento = _eventRepository.GetByID(id);
+            var evento = _eventRepository.GetById(id);
 
             if (evento != null) return true;
 

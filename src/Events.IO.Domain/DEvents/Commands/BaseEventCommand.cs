@@ -15,7 +15,6 @@ namespace Events.IO.Domain.DEvents.Commands
         public bool Online { get; protected set; }
         public string CompanyName { get; protected set; }
         public Guid HostId { get; protected set; }
-        public Address Address { get; protected set; }
-        public Category Category{ get; protected set; }
+        public Guid CategoryId{ get; protected set; }
     }
 }
