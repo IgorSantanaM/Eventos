@@ -1,13 +1,15 @@
-﻿@model Events.IO.Application.ViewModels.EventViewModel
+﻿@using Events.IO.Application.ViewModels
+@model Events.IO.Application.ViewModels.EventViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Registry Event";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>EventViewModel</h4>
+<h4> Fill in all te requirements</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -17,21 +19,33 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="ShortDescription" class="control-label"></label>
                 <input asp-for="ShortDescription" class="form-control" />
                 <span asp-validation-for="ShortDescription" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="LongDescription" class="control-label"></label>
-                <input asp-for="LongDescription" class="form-control" />
+                <textarea rows="5" asp-for="LongDescription" class="form-control" />
                 <span asp-validation-for="LongDescription" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Category" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    @Html.Partial("_Categories")
+                <span asp-validation-for="Category" class="text-danger"></span>
+                 </div>
+            </div>
+
             <div class="form-group">
                 <label asp-for="BeginDate" class="control-label"></label>
                 <input asp-for="BeginDate" class="form-control" />
                 <span asp-validation-for="BeginDate" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="EndDate" class="control-label"></label>
                 <input asp-for="EndDate" class="form-control" />
@@ -67,14 +81,12 @@
                 <span asp-validation-for="HostId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Registry" class="btn btn-success" />
+                <a asp-action="Index" class=" btn btn-info">Back to List</a>
+
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

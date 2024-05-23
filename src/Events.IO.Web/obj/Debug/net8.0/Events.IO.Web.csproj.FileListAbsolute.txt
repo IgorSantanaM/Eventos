@@ -279,3 +279,4 @@ D:\users\Usuario\works\Events\Events\src\Events.IO.Web\obj\Debug\net8.0\Events.I
 D:\users\Usuario\works\Events\Events\src\Events.IO.Web\obj\Debug\net8.0\ref\Events.IO.Web.dll
 D:\users\Usuario\works\Events\Events\src\Events.IO.Web\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\users\Usuario\works\Events\Events\src\Events.IO.Web\obj\Debug\net8.0\Events.IO.Web.MvcApplicationPartsAssemblyInfo.cs
+D:\users\Usuario\works\Events\Events\src\Events.IO.Web\bin\Debug\net8.0\Dapper.dll

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Pbktk7eneSYh2bETydXR66nwHHpi5tU9EtgwuOtG1kjp/n6CWx2YMlp6WK7dJrzVS8heuwGPJIqqr+rQz0xCnQ==",
+  "dgSpecHash": "0bodfJo5EBHVWg1S9Y3jxi+QIEtvkzxvWI87AoYORtz8sCnS+klTzdNQY4amZDH7AkYt5+8xnALVsOQkyENl1g==",
   "success": true,
   "projectFilePath": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Infra.CrossCutting.IoC\\Events.IO.Infra.CrossCutting.IoC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.9.1\\fluentvalidation.11.9.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

@@ -307,6 +307,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
             }
           },
           "imports": [

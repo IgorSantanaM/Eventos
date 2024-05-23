@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BRxDtokFhUabQEdyr1xL86PKEr1OI3226qpDR+7umKBR1LRK6rUuV3HfUMZbHicGL9RRntex8jrb7AHxTgHqag==",
+  "dgSpecHash": "HoOxcu7VA7LbEC+nyKfsF/OoxiwIJ+jOtagX8UkKRm2wxmVqwjwdnVJa0mTZp+tSNEA7YGBYFMrqQJ4v36VUIg==",
   "success": true,
   "projectFilePath": "D:\\users\\Usuario\\works\\Events\\Events\\src\\Events.IO.Web\\Events.IO.Web.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Usuario\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.9.1\\fluentvalidation.11.9.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

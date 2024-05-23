@@ -42,7 +42,7 @@ namespace Events.IO.Domain.DEvents
         public virtual Host Host { get; private set; }
 
 
-        public void AtribuirEndereco(Address address)
+        public void AssignAddress(Address address)
         {
             if (!address.IsValidate()) return;
             Address = address;
@@ -52,7 +52,7 @@ namespace Events.IO.Domain.DEvents
             Deleted = true;
         }
         
-        public void AssignCategoria(Category category)
+        public void AssignCategory(Category category)
         {
             if (!category.IsValidate()) return;
             Category = category;

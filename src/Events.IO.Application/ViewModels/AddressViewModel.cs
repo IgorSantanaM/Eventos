@@ -24,6 +24,8 @@ namespace Events.IO.Application.ViewModels
             public string ZipCode { get;  set; }
             public string City { get;  set; }
             public string State { get;  set; }
+
+        public Guid EventId { get; set; }
         public override string ToString()
         {
             return PublicPlace + "," + Number + "," + Complement + "," + Neighborhood + "," + ZipCode + "," + City + "," + State;
