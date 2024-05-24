@@ -1,9 +1,10 @@
 ﻿using Events.IO.Domain.DEvents.Commands;
+using Events.IO.Domain.Interface;
 using Events.IO.Infra.Data.Context;
 
 namespace Events.IO.Infra.Data.UoW
 {
-    public class UnitOfWork : IUnityOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly EventsContext _context;
         public UnitOfWork(EventsContext context)

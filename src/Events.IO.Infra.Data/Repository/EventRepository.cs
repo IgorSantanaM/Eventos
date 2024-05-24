@@ -15,8 +15,8 @@ namespace Events.IO.Infra.Data.Repository
         }
         public override IEnumerable<DEvent> GetAll()
         {
-            var sql = "SELECT * FROM EVENTS E" +
-                    "WHERE E.DELETED = 0" +
+            var sql = "SELECT * FROM EVENTS E " +
+                    "WHERE E.DELETED = 0 " +
                     "ORDER BY E.ENDDATE DESC";
 
             return Db.Database.GetDbConnection().Query<DEvent>(sql);
@@ -35,28 +35,28 @@ namespace Events.IO.Infra.Data.Repository
 
         public  Address GetAddressById(Guid id)
         {
-            var sql = @"SELECT * FROM Adresses A" +
+            var sql = @"SELECT * FROM Adresses A " +
                       "WHERE E.Id = @udi";
 
-            var address = Db.Database.GetDbConnection().Query<Address>(sql, new { uid = id });
+            IEnumerable<Address> addresses = Db.Database.GetDbConnection().Query<Address>(sql, new { uid = id });
 
-            return address.SingleOrDefault();
+            return addresses.SingleOrDefault();
         }
 
         public IEnumerable<DEvent> GetEventByHost(Guid hostId)
         {
-            var sql = @"SELECT * FROM Events E" +
-                      "WHERE E.DELETED = 0" +
-                      "AND E.HOST = @oid" +
+            string sql = @"SELECT * FROM Events E " +
+                      "WHERE E.DELETED = 0 " +
+                      "AND E.HOST = @oid " +
                       "ORDER BY E.ENDDATE DESC";
 
             return Db.Database.GetDbConnection().Query<DEvent>(sql, new { oid = hostId });
         }
         public override DEvent GetById(Guid id)
         {
-            var sql = @"SELECT * FROM Events E" +
-                      "LEFT JOIN Address EN" +
-                      "ON E.Id = EN.EventId" +
+            string sql = @"SELECT * FROM Events E " +
+                      "LEFT JOIN Address EN " +
+                      "ON E.Id = EN.EventId " +
                       "WHERE E.Id = @uid";
 
             var devent = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(sql,

@@ -18,6 +18,7 @@ namespace Events.IO.Application.Services
             _mapper = mapper; 
             _eventRepository = eventRepository;
         }
+        
         public void Delete(Guid id)
         {
             _bus.SendCommand(new DeleteEventCommand(id));
