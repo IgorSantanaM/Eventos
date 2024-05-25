@@ -1,14 +1,17 @@
 ﻿using Events.IO.Application.Interfaces;
 using Events.IO.Application.ViewModels;
+using Events.IO.Domain.Core.Notifications;
+using Events.IO.Web.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Events.IO.Site.Controllers
 {
-    public class EventsController : Controller
+    public class EventsController : BaseController
     {
         private readonly IEventAppService _eventAppService;
 
-        public EventsController(IEventAppService eventAppService)
+        public EventsController(IEventAppService eventAppService,
+            IDomainNotificationHandler<DomainNotification> notifications) : base(notifications)
         {
             _eventAppService = eventAppService;
         }
@@ -46,6 +49,7 @@ namespace Events.IO.Site.Controllers
 
             _eventAppService.Registry(eventViewModel);
 
+            ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
 
             return View(eventViewModel);
         }
@@ -73,6 +77,9 @@ namespace Events.IO.Site.Controllers
             if (!ModelState.IsValid) return View(eventViewModel);
 
             _eventAppService.Update(eventViewModel);
+
+            ViewBag.PostReturn = ValidOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
+
 
             return View(eventViewModel);
         }

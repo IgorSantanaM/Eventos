@@ -1,4 +1,4 @@
-﻿using Events.IO.Domain.CommandHandlers;
+﻿  using Events.IO.Domain.CommandHandlers;
 using Events.IO.Domain.Core.Bus;
 using Events.IO.Domain.Core.Events;
 using Events.IO.Domain.Core.Notifications;
