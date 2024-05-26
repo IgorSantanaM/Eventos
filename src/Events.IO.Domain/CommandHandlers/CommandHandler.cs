@@ -17,7 +17,7 @@ namespace Events.IO.Domain.CommandHandlers
             _bus = bus;
             _notifications = notifications;
         }
-        protected void NotificarValidacoesErro(ValidationResult validationResult)
+        protected void NotifyErrorValidations(ValidationResult validationResult)
         {
             foreach(var error in validationResult.Errors)
             {
