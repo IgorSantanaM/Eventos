@@ -29,6 +29,8 @@ namespace Events.IO.Infra.CrossCutting.IoC
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
             services.AddScoped<IEventAppService, EventAppService>();
+            services.AddScoped<IHostAppService, HostAppService>();
+
 
             //Domain - Commands
             services.AddScoped<IHandler<RegistryEventCommand>, EventCommandHandler>();

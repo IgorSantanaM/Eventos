@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Events.IO.Application.ViewModels;
 using Events.IO.Domain.DEvents.Commands;
+using Events.IO.Domain.Hosts.Commands;
 
 namespace Events.IO.Application.AutoMapper
 {
@@ -20,6 +21,10 @@ namespace Events.IO.Application.AutoMapper
 
             CreateMap<EventViewModel, DeleteEventCommand>()
                 .ConstructUsing(c => new DeleteEventCommand(c.Id));
+
+            //Host
+            CreateMap<HostViewModel, RegistryHostCommand>()
+                .ConstructUsing(c => new RegistryHostCommand(c.Id, c.Name, c.CPF, c.Email));
         }
     }
 }

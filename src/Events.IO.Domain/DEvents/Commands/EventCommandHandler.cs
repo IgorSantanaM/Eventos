@@ -80,7 +80,7 @@ namespace Events.IO.Domain.DEvents.Commands
         {
             if (evento.IsValidate()) return true;
 
-            NotificarValidacoesErro(evento.ValidationResult);
+            NotifyErrorValidations(evento.ValidationResult);
 
             return false;
         }

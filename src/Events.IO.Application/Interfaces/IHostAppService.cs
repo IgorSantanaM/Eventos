@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Events.IO.Application.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Events.IO.Application.Interfaces
 {
     public interface IHostAppService : IDisposable
     {
-        //void Registry(HostViewModel hostViewModel);
+        void Registry(HostViewModel hostViewModel);
     }
 }

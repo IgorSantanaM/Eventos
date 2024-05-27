@@ -2,6 +2,7 @@
 using Events.IO.Domain.Core.Bus;
 using Events.IO.Domain.Core.Events;
 using Events.IO.Domain.Core.Notifications;
+using Events.IO.Domain.Hosts.Events;
 using Events.IO.Domain.Hosts.Repository;
 using Events.IO.Domain.Interface;
 using System;
@@ -44,7 +45,7 @@ namespace Events.IO.Domain.Hosts.Commands
 
             if (Commit())
             {
-                
+                _bus.RaiseEvent(new HostRegistredEvent(host.Id, host.Name, host.CPF, host.Email));
             }
         }
     }
