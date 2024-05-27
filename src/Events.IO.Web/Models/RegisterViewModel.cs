@@ -2,7 +2,7 @@
 
 namespace Events.IO.Web.Models
 {
-    public class RegisterViewModel
+    public class RegisterViewModel : ApllicationUser
     {
         [Required(ErrorMessage = "The Name is required")]
         public string Name { get; set; }

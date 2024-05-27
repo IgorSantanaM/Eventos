@@ -18,6 +18,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 RegisterServices(builder.Services);
 
+int a;
+
 
 builder.Services.AddControllersWithViews();
 
