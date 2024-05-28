@@ -1,6 +1,8 @@
+using Events.IO.Domain.Interface;
 using Events.IO.Infra.CrossCutting.Bus;
 using Events.IO.Infra.CrossCutting.IoC;
 using Events.IO.Web.Data;
+using Events.IO.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,11 +17,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddScoped<IUser, AspNetUser>();
 
 RegisterServices(builder.Services);
-
-int a;
-
 
 builder.Services.AddControllersWithViews();
 
@@ -36,7 +36,6 @@ else
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();

@@ -4,83 +4,86 @@
 <h1>Registry new Event</h1>
 
 <form asp-action="Create">
- <div class="form-horizontal">
-<h4> Fill in all te requirements</h4>
+    <div class="form-horizontal">
+        <h4> Fill in all te requirements</h4>
         <hr />
 
         <vc:summary />
 
-            <div class="form-group">
-                <label asp-for="Name" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                 </div>
-            </div>
-
-            <div class="form-group">
-              <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
+        <div class="form-group">
+            <label asp-for="Name" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="ShortDescription" class="form-control"/>
-              <span asp-validation-for="ShortDescription" class="text-da nger"></span>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+        </div>
 
-              <div class="form-group">
-              <label asp-for="LongDescription" class="col-md-2 control-label"></label>
+        <div class="form-group">
+            <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="LongDescription" class="form-control"/>
-              <span asp-validation-for="LongDescription" class="text-da nger"></span>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-da nger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Category" class="col-md-2 control-label"></label>
+                <label asp-for="LongDescription" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    @Html.Partial("_Categories")
-                <span asp-validation-for="Category" class="text-danger"></span>
-                 </div>
-            </div>
+                    <input asp-for="LongDescription" class="form-control" />
+                    <span asp-validation-for="LongDescription" class="text-da nger"></span>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="BeginDate" class="control-label"></label>
-                <input asp-for="BeginDate" class="form-control" />
-                <span asp-validation-for="BeginDate" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Category" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        @Html.Partial("_Categories")
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="EndDate" class="control-label"></label>
-                <input asp-for="EndDate" class="form-control" />
-                <span asp-validation-for="EndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Value" class="control-label"></label>
-                <input asp-for="Value" class="form-control" />
-                <span asp-validation-for="Value" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompanyName" class="control-label"></label>
-                <input asp-for="CompanyName" class="form-control" />
-                <span asp-validation-for="CompanyName" class="text-danger"></span>
-            </div>
-           
-            <div class="form-group">
-                <input type="submit" value="Registry" class="btn btn-success" />
-                <a asp-action="Index" class=" btn btn-info">Back to List</a>
+                <div class="form-group">
+                    <label asp-for="BeginDate" class="control-label"></label>
+                    <input asp-for="BeginDate" class="form-control" />
+                    <span asp-validation-for="BeginDate" class="text-danger"></span>
+                </div>
 
-            </div>
-        </form>
+                <div class="form-group">
+                    <label asp-for="EndDate" class="control-label"></label>
+                    <input asp-for="EndDate" class="form-control" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Value" class="control-label"></label>
+                    <input asp-for="Value" class="form-control" />
+                    <span asp-validation-for="Value" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CompanyName" class="control-label"></label>
+                    <input asp-for="CompanyName" class="form-control" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Registry" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-info">Back to List</a>
+
+                </div>
+
+</form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
 
     <script>
@@ -88,29 +91,30 @@
     </script>
 
     @{
-        if (ViewBag.PostReturn != null) { 
+        if (ViewBag.PostReturn != null)
+        {
 
-            dynamic notification = ViewBag.PostReturn.ToString().split(',');
+            var notification = ViewBag.PostReturn.ToString().Split(",");
             <script>
-         toastr.options = {
-          "closeButton": false,
-          "debug": false,
-          "newestOnTop": false,
-          "progressBar": false,
-          "positionClass": "toast-top-right",
-          "preventDuplicates": false,
-          "onclick": null,
-          "showDuration": "300",
-          "hideDuration": "1000",
-          "timeOut": "5000",
-          "extendedTimeOut": "1000",
-          "showEasing": "swing",
-          "hideEasing": "linear",
-          "showMethod": "fadeIn",
-          "hideMethod": "fadeOut"
-        }
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
                 toastr["@notification[0]"]("notification[1]");
-    </script>
+            </script>
         }
     }
 }

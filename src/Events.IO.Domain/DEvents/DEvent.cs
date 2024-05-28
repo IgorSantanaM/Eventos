@@ -84,45 +84,39 @@ namespace Events.IO.Domain.DEvents
         }
         private void ValueValidation()
         {
-            if (!Free)
-                RuleFor(c => c.Value)
-                    .ExclusiveBetween(1, 50000)
-                    .WithMessage("The event must cust between 1 and 50000");
-
-            if (Free)
-                RuleFor(c => c.Value)
-                    .ExclusiveBetween(0, 0).When(e => e.Free)
-                    .WithMessage("The event value must be 0");
+            RuleFor(c => c.Value)
+                .Must((c, value) => !c.Free || (value >= 0 && value <= 50000))
+                .WithMessage("The event value must be between 0 and 50000 if not free.");
         }
 
         private void DateValidation()
         {
             RuleFor(c => c.BeginDate)
-                .GreaterThan(c => c.EndDate)
-                .WithMessage("The event can't begin after its end");
+                .LessThan(c => c.EndDate)
+                .WithMessage("The event cannot begin after its end");
 
             RuleFor(c => c.BeginDate)
-                .LessThan(DateTime.Now)
-                .WithMessage("The event cannot betgin before the actual date");
+                .GreaterThan(DateTime.Now)
+                .WithMessage("The event cannot begin before the current date");
         }
         private void LocalValidation()
         {
             if (Online)
                 RuleFor(c => c.Address)
                     .Null().When(c => c.Online)
-                    .WithMessage("The event don't need an address since it's online");
+                    .WithMessage("The event don't need an address since it's online.");
 
 
             if (!Online)
                 RuleFor(c => c.Address)
                     .NotNull().When(c => c.Online == false)
-                    .WithMessage("The event address must be declared");
+                    .WithMessage("The event address must be declared.");
         }
         private void CompanyNameValidation()
         {
             RuleFor(c => c.CompanyName)
                 .NotEmpty().WithMessage("The host name must be declared")
-                .Length(2, 150).WithMessage("The host name must be between 2 and 150 chars");
+                .Length(2, 150).WithMessage("The host name must be between 2 and 150 chars.");
         }
 
 

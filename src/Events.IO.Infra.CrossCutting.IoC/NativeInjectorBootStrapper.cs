@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Events.IO.Application.AutoMapper;
 using Events.IO.Application.Interfaces;
 using Events.IO.Application.Services;
 using Events.IO.Domain.Core.Bus;
@@ -15,6 +16,7 @@ using Events.IO.Infra.CrossCutting.Bus;
 using Events.IO.Infra.Data.Context;
 using Events.IO.Infra.Data.Repository;
 using Events.IO.Infra.Data.UoW;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -25,8 +27,12 @@ namespace Events.IO.Infra.CrossCutting.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+
+            //ASPNET
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             //Application
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(Assembly.GetExecutingAssembly(), typeof(AutoMapperConfiguration).GetTypeInfo().Assembly);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
             services.AddScoped<IEventAppService, EventAppService>();
             services.AddScoped<IHostAppService, HostAppService>();

@@ -1,7 +1,9 @@
 ﻿using Events.IO.Application.Interfaces;
 using Events.IO.Application.ViewModels;
 using Events.IO.Domain.Core.Notifications;
+using Events.IO.Domain.Interface;
 using Events.IO.Web.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Events.IO.Site.Controllers
@@ -11,7 +13,7 @@ namespace Events.IO.Site.Controllers
         private readonly IEventAppService _eventAppService;
 
         public EventsController(IEventAppService eventAppService,
-            IDomainNotificationHandler<DomainNotification> notifications) : base(notifications)
+            IDomainNotificationHandler<DomainNotification> notifications, IUser user) : base(notifications, user)
         {
             _eventAppService = eventAppService;
         }
@@ -36,24 +38,26 @@ namespace Events.IO.Site.Controllers
 
             return View(eventViewModel);
         }
-
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(EventViewModel eventViewModel)
         {
-            if (!ModelState.IsValid) return View(eventViewModel);
+            //if (!ModelState.IsValid) return View(eventViewModel);
 
+            eventViewModel.HostId = HostId;
             _eventAppService.Registry(eventViewModel);
 
             ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
 
             return View(eventViewModel);
         }
-
+        [Authorize]
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -68,7 +72,7 @@ namespace Events.IO.Site.Controllers
             }
             return View(eventViewModel);
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(EventViewModel eventViewModel)
@@ -83,7 +87,7 @@ namespace Events.IO.Site.Controllers
 
             return View(eventViewModel);
         }
-
+        [Authorize]
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -100,7 +104,7 @@ namespace Events.IO.Site.Controllers
 
             return View(eventViewModel);
         }
-
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
