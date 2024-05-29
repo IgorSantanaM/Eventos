@@ -12,8 +12,6 @@ namespace Events.IO.Web.Models
             }
             var claim = principal.FindFirst(ClaimTypes.NameIdentifier);
             return claim?.Value;
-
-
         }
     }
 }

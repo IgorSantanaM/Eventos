@@ -8,7 +8,7 @@
             DateTime beginDate,
             DateTime endDate,
             bool free,
-            decimal value,
+            decimal price,
             bool online,
             string companyName,
             Guid hostId,
@@ -22,7 +22,7 @@
             BeginDate = beginDate;
             EndDate = endDate;
             Free = free;
-            Value = value;
+            Price = price;
             Online = online;
             CompanyName = companyName;
             HostId = hostId;

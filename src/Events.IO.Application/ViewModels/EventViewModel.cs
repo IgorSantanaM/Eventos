@@ -36,9 +36,10 @@ namespace Events.IO.Application.ViewModels
         [Display(Name = "Is it going to be free?")]
         public bool Free { get; set; }
 
-        [Display(Name = "Value")]
+        [Display(Name = "Price")]
+        [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString ="{0:C}")]
-        public decimal Value { get; set; }
+        public decimal Price { get; set; }
 
         [Display(Name = "Is it going to be Online?")]
         public bool Online { get; set; }

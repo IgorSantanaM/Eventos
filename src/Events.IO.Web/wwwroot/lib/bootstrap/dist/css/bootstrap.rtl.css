@@ -2205,7 +2205,7 @@ progress {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
-.form-control::-webkit-date-and-time-value {
+.form-control::-webkit-date-and-time-price {
   height: 1.5em;
 }
 .form-control::-moz-placeholder {

@@ -330,7 +330,7 @@ $.extend( $.validator, {
 				38, 39, 40, 45, 144, 225
 			];
 
-			if ( event.which === 9 && this.elementValue( element ) === "" || $.inArray( event.keyCode, excludedKeys ) !== -1 ) {
+			if ( event.which === 9 && this.elementPrice( element ) === "" || $.inArray( event.keyCode, excludedKeys ) !== -1 ) {
 				return;
 			} else if ( element.name in this.submitted || element.name in this.invalid ) {
 				this.element( element );
@@ -377,13 +377,13 @@ $.extend( $.validator, {
 		dateISO: "Please enter a valid date (ISO).",
 		number: "Please enter a valid number.",
 		digits: "Please enter only digits.",
-		equalTo: "Please enter the same value again.",
+		equalTo: "Please enter the same price again.",
 		maxlength: $.validator.format( "Please enter no more than {0} characters." ),
 		minlength: $.validator.format( "Please enter at least {0} characters." ),
-		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
-		range: $.validator.format( "Please enter a value between {0} and {1}." ),
-		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
-		min: $.validator.format( "Please enter a value greater than or equal to {0}." ),
+		rangelength: $.validator.format( "Please enter a price between {0} and {1} characters long." ),
+		range: $.validator.format( "Please enter a price between {0} and {1}." ),
+		max: $.validator.format( "Please enter a price less than or equal to {0}." ),
+		min: $.validator.format( "Please enter a price greater than or equal to {0}." ),
 		step: $.validator.format( "Please enter a multiple of {0}." )
 	},
 
@@ -396,7 +396,7 @@ $.extend( $.validator, {
 			this.errorContext = this.labelContainer.length && this.labelContainer || $( this.currentForm );
 			this.containers = $( this.settings.errorContainer ).add( this.settings.errorLabelContainer );
 			this.submitted = {};
-			this.valueCache = {};
+			this.priceCache = {};
 			this.pendingRequest = 0;
 			this.pending = {};
 			this.invalid = {};
@@ -405,17 +405,17 @@ $.extend( $.validator, {
 			var currentForm = this.currentForm,
 				groups = ( this.groups = {} ),
 				rules;
-			$.each( this.settings.groups, function( key, value ) {
-				if ( typeof value === "string" ) {
-					value = value.split( /\s/ );
+			$.each( this.settings.groups, function( key, price ) {
+				if ( typeof price === "string" ) {
+					price = price.split( /\s/ );
 				}
-				$.each( value, function( index, name ) {
+				$.each( price, function( index, name ) {
 					groups[ name ] = key;
 				} );
 			} );
 			rules = this.settings.rules;
-			$.each( rules, function( key, value ) {
-				rules[ key ] = $.validator.normalizeRule( value );
+			$.each( rules, function( key, price ) {
+				rules[ key ] = $.validator.normalizeRule( price );
 			} );
 
 			function delegate( event ) {
@@ -492,7 +492,7 @@ $.extend( $.validator, {
 				this.currentElements = $( checkElement );
 
 				// If this element is grouped, then validate all group elements already
-				// containing a value
+				// containing a price
 				group = this.groups[ checkElement.name ];
 				if ( group ) {
 					$.each( this.groups, function( name, testgroup ) {
@@ -564,7 +564,7 @@ $.extend( $.validator, {
 			this.prepareForm();
 			this.hideErrors();
 			var elements = this.elements()
-				.removeData( "previousValue" )
+				.removeData( "previousPrice" )
 				.removeAttr( "aria-invalid" );
 
 			this.resetElements( elements );
@@ -715,7 +715,7 @@ $.extend( $.validator, {
 			this.toHide = this.errorsFor( element );
 		},
 
-		elementValue: function( element ) {
+		elementPrice: function( element ) {
 			var $element = $( element ),
 				type = element.type,
 				isContentEditable = typeof $element.attr( "contenteditable" ) !== "undefined" && $element.attr( "contenteditable" ) !== "false",
@@ -771,7 +771,7 @@ $.extend( $.validator, {
 					return i;
 				} ).length,
 				dependencyMismatch = false,
-				val = this.elementValue( element ),
+				val = this.elementPrice( element ),
 				result, method, rule, normalizer;
 
 			// Prioritize the local normalizer defined for this element over the global one
@@ -782,7 +782,7 @@ $.extend( $.validator, {
 				normalizer = this.settings.normalizer;
 			}
 
-			// If normalizer is defined, then call it to retreive the changed value instead
+			// If normalizer is defined, then call it to retreive the changed price instead
 			// of using the real one.
 			// Note that `this` in the normalizer is `element`.
 			if ( normalizer ) {
@@ -1080,7 +1080,7 @@ $.extend( $.validator, {
 			return $( this.currentForm ).find( "[name='" + this.escapeCssMeta( name ) + "']" );
 		},
 
-		getLength: function( value, element ) {
+		getLength: function( price, element ) {
 			switch ( element.nodeName.toLowerCase() ) {
 			case "select":
 				return $( "option:selected", element ).length;
@@ -1089,7 +1089,7 @@ $.extend( $.validator, {
 					return this.findByName( element.name ).filter( ":checked" ).length;
 				}
 			}
-			return value.length;
+			return price.length;
 		},
 
 		depend: function( param, element ) {
@@ -1109,7 +1109,7 @@ $.extend( $.validator, {
 		},
 
 		optional: function( element ) {
-			var val = this.elementValue( element );
+			var val = this.elementPrice( element );
 			return !$.validator.methods.required.call( this, val, element ) && "dependency-mismatch";
 		},
 
@@ -1135,7 +1135,7 @@ $.extend( $.validator, {
 
 				// Remove the hidden input that was used as a replacement for the
 				// missing submit button. The hidden input is added by `handle()`
-				// to ensure that the value of the used submit button is passed on
+				// to ensure that the price of the used submit button is passed on
 				// for scripted submits triggered by this method
 				if ( this.submitButton ) {
 					$( "input:hidden[name='" + this.submitButton.name + "']", this.currentForm ).remove();
@@ -1148,10 +1148,10 @@ $.extend( $.validator, {
 			}
 		},
 
-		previousValue: function( element, method ) {
+		previousPrice: function( element, method ) {
 			method = typeof method === "string" && method || "remote";
 
-			return $.data( element, "previousValue" ) || $.data( element, "previousValue", {
+			return $.data( element, "previousPrice" ) || $.data( element, "previousPrice", {
 				old: null,
 				valid: true,
 				message: this.defaultMessage( element, { method: method } )
@@ -1217,21 +1217,21 @@ $.extend( $.validator, {
 		return rules;
 	},
 
-	normalizeAttributeRule: function( rules, type, method, value ) {
+	normalizeAttributeRule: function( rules, type, method, price ) {
 
-		// Convert the value to a number for number inputs, and for text for backwards compability
+		// Convert the price to a number for number inputs, and for text for backwards compability
 		// allows type="date" and others to be compared as strings
 		if ( /min|max|step/.test( method ) && ( type === null || /number|range|text/.test( type ) ) ) {
-			value = Number( value );
+			price = Number( price );
 
 			// Support Opera Mini, which returns NaN for undefined minlength
-			if ( isNaN( value ) ) {
-				value = undefined;
+			if ( isNaN( price ) ) {
+				price = undefined;
 			}
 		}
 
-		if ( value || value === 0 ) {
-			rules[ method ] = value;
+		if ( price || price === 0 ) {
+			rules[ method ] = price;
 		} else if ( type === method && type !== "range" ) {
 
 			// Exception: the jquery validate 'range' method
@@ -1244,27 +1244,27 @@ $.extend( $.validator, {
 		var rules = {},
 			$element = $( element ),
 			type = element.getAttribute( "type" ),
-			method, value;
+			method, price;
 
 		for ( method in $.validator.methods ) {
 
 			// Support for <input required> in both html5 and older browsers
 			if ( method === "required" ) {
-				value = element.getAttribute( method );
+				price = element.getAttribute( method );
 
 				// Some browsers return an empty string for the required attribute
 				// and non-HTML5 browsers might have required="" markup
-				if ( value === "" ) {
-					value = true;
+				if ( price === "" ) {
+					price = true;
 				}
 
 				// Force non-HTML5 browsers to return bool
-				value = !!value;
+				price = !!price;
 			} else {
-				value = $element.attr( method );
+				price = $element.attr( method );
 			}
 
-			this.normalizeAttributeRule( rules, type, method, value );
+			this.normalizeAttributeRule( rules, type, method, price );
 		}
 
 		// 'maxlength' may be returned as -1, 2147483647 ( IE ) and 524288 ( safari ) for text inputs
@@ -1279,17 +1279,17 @@ $.extend( $.validator, {
 		var rules = {},
 			$element = $( element ),
 			type = element.getAttribute( "type" ),
-			method, value;
+			method, price;
 
 		for ( method in $.validator.methods ) {
-			value = $element.data( "rule" + method.charAt( 0 ).toUpperCase() + method.substring( 1 ).toLowerCase() );
+			price = $element.data( "rule" + method.charAt( 0 ).toUpperCase() + method.substring( 1 ).toLowerCase() );
 
 			// Cast empty attributes like `data-rule-required` to `true`
-			if ( value === "" ) {
-				value = true;
+			if ( price === "" ) {
+				price = true;
 			}
 
-			this.normalizeAttributeRule( rules, type, method, value );
+			this.normalizeAttributeRule( rules, type, method, price );
 		}
 		return rules;
 	},
@@ -1399,7 +1399,7 @@ $.extend( $.validator, {
 	methods: {
 
 		// https://jqueryvalidation.org/required-method/
-		required: function( value, element, param ) {
+		required: function( price, element, param ) {
 
 			// Check if dependency is met
 			if ( !this.depend( param, element ) ) {
@@ -1412,36 +1412,36 @@ $.extend( $.validator, {
 				return val && val.length > 0;
 			}
 			if ( this.checkable( element ) ) {
-				return this.getLength( value, element ) > 0;
+				return this.getLength( price, element ) > 0;
 			}
-			return value !== undefined && value !== null && value.length > 0;
+			return price !== undefined && price !== null && price.length > 0;
 		},
 
 		// https://jqueryvalidation.org/email-method/
-		email: function( value, element ) {
+		email: function( price, element ) {
 
 			// From https://html.spec.whatwg.org/multipage/forms.html#valid-e-mail-address
 			// Retrieved 2014-01-14
 			// If you have a problem with this implementation, report a bug against the above spec
 			// Or use custom methods to implement your own email validation
-			return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( value );
+			return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( price );
 		},
 
 		// https://jqueryvalidation.org/url-method/
-		url: function( value, element ) {
+		url: function( price, element ) {
 
 			// Copyright (c) 2010-2013 Diego Perini, MIT licensed
 			// https://gist.github.com/dperini/729294
 			// see also https://mathiasbynens.be/demo/url-regex
 			// modified to allow protocol-relative URLs
-			return this.optional( element ) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:(?:[^\]\[?\/<~#`!@$^&*()+=}|:";',>{ ]|%[0-9A-Fa-f]{2})+(?::(?:[^\]\[?\/<~#`!@$^&*()+=}|:";',>{ ]|%[0-9A-Fa-f]{2})*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z0-9\u00a1-\uffff][a-z0-9\u00a1-\uffff_-]{0,62})?[a-z0-9\u00a1-\uffff]\.)+(?:[a-z\u00a1-\uffff]{2,}\.?))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test( value );
+			return this.optional( element ) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:(?:[^\]\[?\/<~#`!@$^&*()+=}|:";',>{ ]|%[0-9A-Fa-f]{2})+(?::(?:[^\]\[?\/<~#`!@$^&*()+=}|:";',>{ ]|%[0-9A-Fa-f]{2})*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z0-9\u00a1-\uffff][a-z0-9\u00a1-\uffff_-]{0,62})?[a-z0-9\u00a1-\uffff]\.)+(?:[a-z\u00a1-\uffff]{2,}\.?))(?::\d{2,5})?(?:[/?#]\S*)?$/i.test( price );
 		},
 
 		// https://jqueryvalidation.org/date-method/
 		date: ( function() {
 			var called = false;
 
-			return function( value, element ) {
+			return function( price, element ) {
 				if ( !called ) {
 					called = true;
 					if ( this.settings.debug && window.console ) {
@@ -1455,60 +1455,60 @@ $.extend( $.validator, {
 					}
 				}
 
-				return this.optional( element ) || !/Invalid|NaN/.test( new Date( value ).toString() );
+				return this.optional( element ) || !/Invalid|NaN/.test( new Date( price ).toString() );
 			};
 		}() ),
 
 		// https://jqueryvalidation.org/dateISO-method/
-		dateISO: function( value, element ) {
-			return this.optional( element ) || /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test( value );
+		dateISO: function( price, element ) {
+			return this.optional( element ) || /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test( price );
 		},
 
 		// https://jqueryvalidation.org/number-method/
-		number: function( value, element ) {
-			return this.optional( element ) || /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test( value );
+		number: function( price, element ) {
+			return this.optional( element ) || /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test( price );
 		},
 
 		// https://jqueryvalidation.org/digits-method/
-		digits: function( value, element ) {
-			return this.optional( element ) || /^\d+$/.test( value );
+		digits: function( price, element ) {
+			return this.optional( element ) || /^\d+$/.test( price );
 		},
 
 		// https://jqueryvalidation.org/minlength-method/
-		minlength: function( value, element, param ) {
-			var length = Array.isArray( value ) ? value.length : this.getLength( value, element );
+		minlength: function( price, element, param ) {
+			var length = Array.isArray( price ) ? price.length : this.getLength( price, element );
 			return this.optional( element ) || length >= param;
 		},
 
 		// https://jqueryvalidation.org/maxlength-method/
-		maxlength: function( value, element, param ) {
-			var length = Array.isArray( value ) ? value.length : this.getLength( value, element );
+		maxlength: function( price, element, param ) {
+			var length = Array.isArray( price ) ? price.length : this.getLength( price, element );
 			return this.optional( element ) || length <= param;
 		},
 
 		// https://jqueryvalidation.org/rangelength-method/
-		rangelength: function( value, element, param ) {
-			var length = Array.isArray( value ) ? value.length : this.getLength( value, element );
+		rangelength: function( price, element, param ) {
+			var length = Array.isArray( price ) ? price.length : this.getLength( price, element );
 			return this.optional( element ) || ( length >= param[ 0 ] && length <= param[ 1 ] );
 		},
 
 		// https://jqueryvalidation.org/min-method/
-		min: function( value, element, param ) {
-			return this.optional( element ) || value >= param;
+		min: function( price, element, param ) {
+			return this.optional( element ) || price >= param;
 		},
 
 		// https://jqueryvalidation.org/max-method/
-		max: function( value, element, param ) {
-			return this.optional( element ) || value <= param;
+		max: function( price, element, param ) {
+			return this.optional( element ) || price <= param;
 		},
 
 		// https://jqueryvalidation.org/range-method/
-		range: function( value, element, param ) {
-			return this.optional( element ) || ( value >= param[ 0 ] && value <= param[ 1 ] );
+		range: function( price, element, param ) {
+			return this.optional( element ) || ( price >= param[ 0 ] && price <= param[ 1 ] );
 		},
 
 		// https://jqueryvalidation.org/step-method/
-		step: function( value, element, param ) {
+		step: function( price, element, param ) {
 			var type = $( element ).attr( "type" ),
 				errorMessage = "Step attribute on input type " + type + " is not supported.",
 				supportedTypes = [ "text", "number", "range" ],
@@ -1537,8 +1537,8 @@ $.extend( $.validator, {
 
 			decimals = decimalPlaces( param );
 
-			// Value can't have too many decimals
-			if ( decimalPlaces( value ) > decimals || toInt( value ) % toInt( param ) !== 0 ) {
+			// Price can't have too many decimals
+			if ( decimalPlaces( price ) > decimals || toInt( price ) % toInt( param ) !== 0 ) {
 				valid = false;
 			}
 
@@ -1546,7 +1546,7 @@ $.extend( $.validator, {
 		},
 
 		// https://jqueryvalidation.org/equalTo-method/
-		equalTo: function( value, element, param ) {
+		equalTo: function( price, element, param ) {
 
 			// Bind to the blur event of the target in order to revalidate whenever the target field is updated
 			var target = $( param );
@@ -1555,18 +1555,18 @@ $.extend( $.validator, {
 					$( element ).valid();
 				} );
 			}
-			return value === target.val();
+			return price === target.val();
 		},
 
 		// https://jqueryvalidation.org/remote-method/
-		remote: function( value, element, param, method ) {
+		remote: function( price, element, param, method ) {
 			if ( this.optional( element ) ) {
 				return "dependency-mismatch";
 			}
 
 			method = typeof method === "string" && method || "remote";
 
-			var previous = this.previousValue( element, method ),
+			var previous = this.previousPrice( element, method ),
 				validator, data, optionDataString;
 
 			if ( !this.settings.messages[ element.name ] ) {
@@ -1576,7 +1576,7 @@ $.extend( $.validator, {
 			this.settings.messages[ element.name ][ method ] = previous.message;
 
 			param = typeof param === "string" && { url: param } || param;
-			optionDataString = $.param( $.extend( { data: value }, param.data ) );
+			optionDataString = $.param( $.extend( { data: price }, param.data ) );
 			if ( previous.old === optionDataString ) {
 				return previous.valid;
 			}
@@ -1585,7 +1585,7 @@ $.extend( $.validator, {
 			validator = this;
 			this.startRequest( element );
 			data = {};
-			data[ element.name ] = value;
+			data[ element.name ] = price;
 			$.ajax( $.extend( true, {
 				mode: "abort",
 				port: "validate" + element.name,
@@ -1607,7 +1607,7 @@ $.extend( $.validator, {
 						validator.showErrors();
 					} else {
 						errors = {};
-						message = response || validator.defaultMessage( element, { method: method, parameters: value } );
+						message = response || validator.defaultMessage( element, { method: method, parameters: price } );
 						errors[ element.name ] = previous.message = message;
 						validator.invalid[ element.name ] = true;
 						validator.showErrors( errors );

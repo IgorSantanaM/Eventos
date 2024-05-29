@@ -2,7 +2,7 @@
 {
     public class UpdateEventCommand : BaseEventCommand
     {
-        public UpdateEventCommand(Guid id, string name,string shortDesc, string longDesc, DateTime beginDate, DateTime endDate, bool free, decimal value, bool online, string companyName, Guid hostId ,Guid categoryId)
+        public UpdateEventCommand(Guid id, string name,string shortDesc, string longDesc, DateTime beginDate, DateTime endDate, bool free, decimal price, bool online, string companyName, Guid hostId ,Guid categoryId)
         {
 			id = id;
 			Name = name;
@@ -11,7 +11,7 @@
 			BeginDate = beginDate;
 			EndDate = endDate;
 			Free = free; 
-			Value = value;
+			Price = price;
 			Online = online;
 			CompanyName = companyName;
 			HostId = hostId;

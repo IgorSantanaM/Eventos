@@ -6,14 +6,14 @@ namespace Events.IO.Domain.DEvents
 {
     public class DEvent : Entity<DEvent>
     {
-        public DEvent(string name, DateTime beginDate, DateTime endDate, bool free, decimal value, bool online, string companyName)
+        public DEvent(string name, DateTime beginDate, DateTime endDate, bool free, decimal price, bool online, string companyName)
         {
             Id = Guid.NewGuid();
             Name = name;
             BeginDate = beginDate;
             EndDate = endDate;
             Free = free;
-            Value = value;
+            Price = price;
             Online = online;
             CompanyName = companyName;
         }
@@ -26,7 +26,7 @@ namespace Events.IO.Domain.DEvents
 		public DateTime BeginDate { get; protected set; }
 		public DateTime EndDate { get; protected set; }
 		public bool Free { get; protected set; }
-		public decimal Value { get; protected set; }
+		public decimal Price { get; protected set; }
 		public bool Online { get; protected set; }
 		public string CompanyName { get; protected set; }
 		public bool Deleted { get; protected set; }
@@ -70,7 +70,7 @@ namespace Events.IO.Domain.DEvents
             CompanyNameValidation();
             DateValidation();
             LocalValidation();
-            ValueValidation();
+            PriceValidation();
             ValidationResult = Validate(this);
 
             //Validacoes adicionais
@@ -82,11 +82,11 @@ namespace Events.IO.Domain.DEvents
                 .NotEmpty().WithMessage("The name must be declared")
                 .Length(2, 150).WithMessage("The event name must be between 2 and 15");
         }
-        private void ValueValidation()
+        private void PriceValidation()
         {
-            RuleFor(c => c.Value)
-                .Must((c, value) => !c.Free || (value >= 0 && value <= 50000))
-                .WithMessage("The event value must be between 0 and 50000 if not free.");
+            RuleFor(c => c.Price)
+                .Must((c, price) => !c.Free || (price >= 0 && price <= 50000))
+                .WithMessage("The event price must be between 0 and 50000 if not free.");
         }
 
         private void DateValidation()
@@ -141,7 +141,7 @@ namespace Events.IO.Domain.DEvents
                 DateTime beginDate,
                 DateTime endDate, 
                 bool free,
-                decimal value, 
+                decimal price, 
                 bool online, 
                 string companyName, 
                 Guid? hostId, 
@@ -157,7 +157,7 @@ namespace Events.IO.Domain.DEvents
                     BeginDate = beginDate,
                     EndDate = endDate,
                     Free = free,
-                    Value = value,
+                    Price = price,
                     Online = online,
                     CompanyName = companyName,
                     Address = address,

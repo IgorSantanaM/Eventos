@@ -2,13 +2,13 @@
 {
     public class EventRegistradeEvent : BaseEventEvent
     {
-        public EventRegistradeEvent(Guid id, string name, DateTime beginDate, DateTime endDate, bool free, decimal value, bool online, string companyName)
+        public EventRegistradeEvent(Guid id, string name, DateTime beginDate, DateTime endDate, bool free, decimal price, bool online, string companyName)
         {
 			Name = name;
 			BeginDate = beginDate;
 			EndDate = endDate;
 			Free = free;
-			Value = value;
+			Price = price;
 			Online = online;
 			CompanyName = companyName;
 

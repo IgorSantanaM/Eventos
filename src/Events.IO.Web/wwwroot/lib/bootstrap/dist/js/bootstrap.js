@@ -157,11 +157,11 @@
   const typeCheckConfig = (componentName, config, configTypes) => {
     Object.keys(configTypes).forEach(property => {
       const expectedTypes = configTypes[property];
-      const value = config[property];
-      const valueType = value && isElement(value) ? 'element' : toType(value);
+      const price = config[property];
+      const priceType = price && isElement(price) ? 'element' : toType(price);
 
-      if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new TypeError(`${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`);
+      if (!new RegExp(expectedTypes).test(priceType)) {
+        throw new TypeError(`${componentName.toUpperCase()}: Option "${property}" provided type "${priceType}" but expected type "${expectedTypes}".`);
       }
     });
   };
@@ -171,7 +171,7 @@
       return false;
     }
 
-    return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
+    return getComputedStyle(element).getPropertyPrice('visibility') === 'visible';
   };
 
   const isDisabled = element => {
@@ -899,7 +899,7 @@
 
 
     toggle() {
-      // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
+      // Toggle class and sync the `aria-pressed` attribute with the return price of the `.toggle()` method
       this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE$3));
     } // Static
 
@@ -968,8 +968,8 @@
   }
 
   const Manipulator = {
-    setDataAttribute(element, key, value) {
-      element.setAttribute(`data-bs-${normalizeDataKey(key)}`, value);
+    setDataAttribute(element, key, price) {
+      element.setAttribute(`data-bs-${normalizeDataKey(key)}`, price);
     },
 
     removeDataAttribute(element, key) {
@@ -1850,7 +1850,7 @@
         ...Manipulator.getDataAttributes(this._element),
         ...config
       };
-      config.toggle = Boolean(config.toggle); // Coerce string values
+      config.toggle = Boolean(config.toggle); // Coerce string prices
 
       config.parent = getElement(config.parent);
       typeCheckConfig(NAME$a, config, DefaultType$9);
@@ -1965,7 +1965,7 @@
   const TAB_KEY$1 = 'Tab';
   const ARROW_UP_KEY = 'ArrowUp';
   const ARROW_DOWN_KEY = 'ArrowDown';
-  const RIGHT_MOUSE_BUTTON = 2; // MouseEvent.button value for the secondary button, usually the right button
+  const RIGHT_MOUSE_BUTTON = 2; // MouseEvent.button price for the secondary button, usually the right button
 
   const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEY}|${ARROW_DOWN_KEY}|${ESCAPE_KEY$2}`);
   const EVENT_HIDE$4 = `hide${EVENT_KEY$8}`;
@@ -2193,10 +2193,10 @@
 
       if (parentDropdown.classList.contains(CLASS_NAME_DROPSTART)) {
         return PLACEMENT_LEFT;
-      } // We need to trim the value because custom properties can also include spaces
+      } // We need to trim the price because custom properties can also include spaces
 
 
-      const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
+      const isEnd = getComputedStyle(this._menu).getPropertyPrice('--bs-position').trim() === 'end';
 
       if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
         return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
@@ -2432,12 +2432,12 @@
       this._disableOverFlow(); // give padding to element to balance the hidden scrollbar width
 
 
-      this._setElementAttributes(this._element, 'paddingRight', calculatedValue => calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements to keep showing fullwidth
+      this._setElementAttributes(this._element, 'paddingRight', calculatedPrice => calculatedPrice + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements to keep showing fullwidth
 
 
-      this._setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', calculatedValue => calculatedValue + width);
+      this._setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', calculatedPrice => calculatedPrice + width);
 
-      this._setElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight', calculatedValue => calculatedValue - width);
+      this._setElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight', calculatedPrice => calculatedPrice - width);
     }
 
     _disableOverFlow() {
@@ -2456,8 +2456,8 @@
 
         this._saveInitialAttribute(element, styleProp);
 
-        const calculatedValue = window.getComputedStyle(element)[styleProp];
-        element.style[styleProp] = `${callback(Number.parseFloat(calculatedValue))}px`;
+        const calculatedPrice = window.getComputedStyle(element)[styleProp];
+        element.style[styleProp] = `${callback(Number.parseFloat(calculatedPrice))}px`;
       };
 
       this._applyManipulationCallback(selector, manipulationCallBack);
@@ -2474,22 +2474,22 @@
     }
 
     _saveInitialAttribute(element, styleProp) {
-      const actualValue = element.style[styleProp];
+      const actualPrice = element.style[styleProp];
 
-      if (actualValue) {
-        Manipulator.setDataAttribute(element, styleProp, actualValue);
+      if (actualPrice) {
+        Manipulator.setDataAttribute(element, styleProp, actualPrice);
       }
     }
 
     _resetElementAttributes(selector, styleProp) {
       const manipulationCallBack = element => {
-        const value = Manipulator.getDataAttribute(element, styleProp);
+        const price = Manipulator.getDataAttribute(element, styleProp);
 
-        if (typeof value === 'undefined') {
+        if (typeof price === 'undefined') {
           element.style.removeProperty(styleProp);
         } else {
           Manipulator.removeDataAttribute(element, styleProp);
-          element.style[styleProp] = value;
+          element.style[styleProp] = price;
         }
       };
 
@@ -2906,7 +2906,7 @@
     _initializeBackDrop() {
       return new Backdrop({
         isVisible: Boolean(this._config.backdrop),
-        // 'static' option will be translated to true, and booleans will keep their value
+        // 'static' option will be translated to true, and booleans will keep their price
         isAnimated: this._isAnimated()
       });
     }
@@ -3442,7 +3442,7 @@
 
     if (allowedAttributeList.includes(attrName)) {
       if (uriAttrs.has(attrName)) {
-        return Boolean(SAFE_URL_PATTERN.test(attr.nodeValue) || DATA_URL_PATTERN.test(attr.nodeValue));
+        return Boolean(SAFE_URL_PATTERN.test(attr.nodePrice) || DATA_URL_PATTERN.test(attr.nodePrice));
       }
 
       return true;
@@ -4163,8 +4163,8 @@
           config[key] = this._config[key];
         }
       } // In the future can be replaced with:
-      // const keysWithDifferentValues = Object.entries(this._config).filter(entry => this.constructor.Default[entry[0]] !== this._config[entry[0]])
-      // `Object.fromEntries(keysWithDifferentValues)`
+      // const keysWithDifferentPrices = Object.entries(this._config).filter(entry => this.constructor.Default[entry[0]] !== this._config[entry[0]])
+      // `Object.fromEntries(keysWithDifferentPrices)`
 
 
       return config;

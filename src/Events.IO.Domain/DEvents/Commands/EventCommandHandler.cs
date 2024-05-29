@@ -32,7 +32,7 @@ namespace Events.IO.Domain.DEvents.Commands
                 message.BeginDate,
                 message.EndDate,
                 message.Free,
-                message.Value,
+                message.Price,
                 message.Online,
                 message.CompanyName,
                 message.HostId,
@@ -47,14 +47,14 @@ namespace Events.IO.Domain.DEvents.Commands
             if (Commit())
             {
                 Console.WriteLine("Event registred");
-                _bus.RaiseEvent(new EventRegistradeEvent(devent.Id, devent.Name, devent.BeginDate, devent.EndDate, devent.Free, devent.Value, devent.Online, devent.CompanyName));
+                _bus.RaiseEvent(new EventRegistradeEvent(devent.Id, devent.Name, devent.BeginDate, devent.EndDate, devent.Free, devent.Price, devent.Online, devent.CompanyName));
             }
         }
         public void Handle(UpdateEventCommand message)
         {
             var actualEvent = _eventRepository.GetById(message.Id);
             if (!EventoExistente(message.Id, message.MessageType)) return;
-            var evento = DEvent.EventFactory.NewCompletedEvent(message.Id, message.Name, message.ShortDescription, message.LongDescription, message.BeginDate, message.EndDate, message.Free, message.Value, message.Online, message.CompanyName, message.HostId, actualEvent.Address, message.CategoryId);
+            var evento = DEvent.EventFactory.NewCompletedEvent(message.Id, message.Name, message.ShortDescription, message.LongDescription, message.BeginDate, message.EndDate, message.Free, message.Price, message.Online, message.CompanyName, message.HostId, actualEvent.Address, message.CategoryId);
 
             if (!ValidEvent(evento)) return;
 
@@ -62,7 +62,7 @@ namespace Events.IO.Domain.DEvents.Commands
 
             if (Commit())
             {
-                _bus.RaiseEvent(new EventUpdatedEvent(evento.Id, evento.Name, evento.ShortDescription, evento.LongDescription, evento.BeginDate, evento.EndDate, evento.Free, evento.Value, evento.Online, evento.CompanyName));
+                _bus.RaiseEvent(new EventUpdatedEvent(evento.Id, evento.Name, evento.ShortDescription, evento.LongDescription, evento.BeginDate, evento.EndDate, evento.Free, evento.Price, evento.Online, evento.CompanyName));
             }
         }
         public void Handle(DeleteEventCommand message)

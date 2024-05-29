@@ -2,6 +2,7 @@
 using Events.IO.Infra.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
 namespace Events.IO.Infra.Data.Mappings
 
 {
@@ -22,6 +23,9 @@ namespace Events.IO.Infra.Data.Mappings
                 .Property(e => e.LongDescription)
                 .HasColumnType("varchar(max)");
 
+            builder
+                 .Property(e => e.Price)
+                .HasPrecision(18, 2);
             builder
                 .Property(e => e.CompanyName)
                 .HasColumnType("varchar(150 )")

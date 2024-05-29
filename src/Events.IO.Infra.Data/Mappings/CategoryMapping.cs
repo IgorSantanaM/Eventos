@@ -16,8 +16,6 @@ namespace Events.IO.Infra.Data.Mappings
             builder
             .Ignore(e => e.ValidationResult);
 
-            builder
-            .Ignore(e => e.CascadeMode);
 
             builder
                 .ToTable("Categories");

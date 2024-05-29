@@ -87,6 +87,9 @@ namespace Events.IO.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("CascadeMode")
+                        .HasColumnType("int");
+
                     b.Property<int>("ClassLevelCascadeMode")
                         .HasColumnType("int");
 
@@ -147,15 +150,16 @@ namespace Events.IO.Infra.Data.Migrations
                     b.Property<bool>("Online")
                         .HasColumnType("bit");
 
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("RuleLevelCascadeMode")
                         .HasColumnType("int");
 
                     b.Property<string>("ShortDescription")
                         .IsRequired()
                         .HasColumnType("varchar(150)");
-
-                    b.Property<decimal>("Value")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

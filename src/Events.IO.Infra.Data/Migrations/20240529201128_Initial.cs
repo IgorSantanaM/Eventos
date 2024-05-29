@@ -17,6 +17,7 @@ namespace Events.IO.Infra.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "varchar(150)", nullable: false),
+                    CascadeMode = table.Column<int>(type: "int", nullable: false),
                     ClassLevelCascadeMode = table.Column<int>(type: "int", nullable: false),
                     RuleLevelCascadeMode = table.Column<int>(type: "int", nullable: false)
                 },
@@ -52,7 +53,7 @@ namespace Events.IO.Infra.Data.Migrations
                     BeginDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Free = table.Column<bool>(type: "bit", nullable: false),
-                    Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Online = table.Column<bool>(type: "bit", nullable: false),
                     CompanyName = table.Column<string>(type: "varchar(150)", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
