@@ -9,9 +9,10 @@ namespace Events.IO.Infra.Data.Repository
 {
     public class EventRepository : Repository<DEvent>, IEventRepository
     {
+        private readonly EventsContext _context;
         public EventRepository(EventsContext context) : base(context)
         {
-
+            _context = context;
         }
         public override IEnumerable<DEvent> GetAll()
         {
