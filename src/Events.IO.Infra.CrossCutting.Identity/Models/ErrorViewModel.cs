@@ -1,4 +1,4 @@
-namespace Events.IO.Web.Models
+namespace Events.IO.Infra.CrossCutting.Identity.Models
 {
     public class ErrorViewModel
     {

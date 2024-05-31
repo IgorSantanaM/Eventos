@@ -1,7 +1,8 @@
 ﻿using Events.IO.Domain.Interface;
+using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace Events.IO.Web.Models
+namespace Events.IO.Infra.CrossCutting.Identity.Models
 {
     public class AspNetUser : IUser
     {

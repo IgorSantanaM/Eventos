@@ -1,4 +1,4 @@
-using Events.IO.Web.Models;
+using Events.IO.Infra.CrossCutting.Identity.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

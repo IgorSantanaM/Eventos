@@ -13,10 +13,13 @@ using Events.IO.Domain.Hosts.Events;
 using Events.IO.Domain.Hosts.Repository;
 using Events.IO.Domain.Interface;
 using Events.IO.Infra.CrossCutting.Bus;
+using Events.IO.Infra.CrossCutting.Identity.Models;
 using Events.IO.Infra.Data.Context;
 using Events.IO.Infra.Data.Repository;
 using Events.IO.Infra.Data.UoW;
+using FluentValidation.Validators;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -61,6 +64,11 @@ namespace Events.IO.Infra.CrossCutting.IoC
 
             //Infra - Bus
             services.AddScoped<IBus, InMemoryBus>();
+
+            //Infra - Identity
+
+            services.AddScoped<IUser, AspNetUser>();
+
 
         }
     }
