@@ -112,5 +112,14 @@ namespace Events.IO.Site.Controllers
             _eventAppService.Delete(id);
             return RedirectToAction("Index");
         }
+        public IActionResult IncludeAddress(Guid? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var eventViewModel = _eventAppService.GetById(id.Value);
+            return PartialView("_IncludeAddress", eventViewModel);
+        }
     }
 }

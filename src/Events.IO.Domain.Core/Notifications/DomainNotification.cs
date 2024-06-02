@@ -6,14 +6,14 @@ namespace Events.IO.Domain.Core.Notifications
     {
         public Guid DomainNotificationId { get; private set; }
         public string Key { get; private set; }
-        public string Price { get; private set; }
+        public string Value { get; private set; }
         public int Version { get; private set; }
 
-        public DomainNotification(string key, string price) 
+        public DomainNotification(string key, string value) 
         {
             DomainNotificationId = Guid.NewGuid();
             Key = key;
-            Price = price;
+            Value = value;
             Version = 1;
         }
     }

@@ -28,7 +28,7 @@ namespace Events.IO.Application.ViewModels
         public Guid EventId { get; set; }
         public override string ToString()
         {
-            return PublicPlace + "," + Number + "," + Complement + "," + Neighborhood + "," + ZipCode + "," + City + "," + State;
+            return PublicPlace + "," + Number + "-" + Complement + "," + Neighborhood + "-" + ZipCode + "," + City + "-" + State;
          }
     }
 }
