@@ -7,7 +7,6 @@ namespace Events.IO.Services.Api.Configurations
     public class RouteConvention
     {
         private readonly AttributeRouteModel _centralPrefix;
-
         public RouteConvention(IRouteTemplateProvider routeTemplateProvider)
         {
             _centralPrefix = new AttributeRouteModel(routeTemplateProvider);
