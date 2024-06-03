@@ -89,5 +89,11 @@ namespace Events.IO.Infra.Data.Repository
 
             return devents.FirstOrDefault();
         }
+        public override void Remove(Guid id)
+        {
+            var devent = GetById(id);
+            devent.DeleteEvent();
+            Update(devent);
+        }
     }
 }

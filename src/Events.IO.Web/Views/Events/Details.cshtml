@@ -1,82 +1,68 @@
-﻿@model Events.IO.Application.ViewModels.EventViewModel
+﻿@model Events.IO.Application.ViewModels
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.Name;
 }
+<div class="jumbotron">
+    <h2>@ViewData["Title"]</h2>
+    <h4>@Model.ShortDescription</h4>
+</div>
 
-<h1>Details</h1>
-
-<div>
-    <h4>EventViewModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LongDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LongDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BeginDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BeginDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Free)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Free)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Online)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Online)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompanyName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HostId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HostId)
-        </dd>
-    </dl>
+<div class="container"
+    <div>
+        <div class="row">
+            @Html.DisplayFor(modelItem => Model.LongDescription)
+        </div>
+        <hr />
+        <br />
+        <div class="row">
+            <b>When:</b>
+            @Model.BeginDate.ToString("d") until @Model.EndDate.ToString("d")
+        </div>
+        <br />
+         <div class="row">
+            <b>Price:</b>
+            @{
+                if (Model.Free)
+                {
+                    @Html.DisplayName("Free")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => Model.Price)
+                }
+            }
+        </div>
+        <br />
+        <div class="row">
+            <b>Kind of Event:</b>
+            @{
+                var category = new CategoryViewModel().ListCategories().FirstOrDefault(c => c.Id == Model.CategoryId);
+                @Html.Raw(category.Name);
+            }
+            
+        </div>
+        <br />
+        <div class="row">
+            <b>Hosted by:</b>
+                @Html.DisplayFor(modelitem => Model.CompanyName);
+        </div>
+        <br />
+        <div class="row">
+            <b>Where?</b>
+            @{
+                if (Model.Online)
+                {
+                    @Html.DisplayName("Online Event")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => Model.Address)
+                }
+            }
+        </div>
+        <br />
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |

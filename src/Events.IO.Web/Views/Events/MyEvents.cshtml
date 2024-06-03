@@ -1,11 +1,17 @@
 ﻿@model IEnumerable<Events.IO.Application.ViewModels.EventViewModel>
 
-@{
-    ViewData["Title"] = "List Of The Next Events";
-}
 
-<h1>Index</h1>
+<h1>My Events</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="pull-left">
+            <a asp-action="Create" class="btn btn-primary">
+                <span title="New Event" class="glyphicon glyphicon-plus-sign"></span> New Event
 
+            </a>
+        </div>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -60,9 +66,15 @@
             </td>
 
             <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
+                        ✏️
+                </a>
                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">
                         🔍
                 </a> 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                        🗑️
+                </a>
             </td>
 
         </tr>

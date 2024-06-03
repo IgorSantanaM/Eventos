@@ -1,8 +1,8 @@
 ﻿namespace Events.IO.Domain.DEvents.Events
 {
-    public class EventRegistradeEvent : BaseEventEvent
+    public class EventRegistredEvent : BaseEventEvent
     {
-        public EventRegistradeEvent(Guid id, string name, DateTime beginDate, DateTime endDate, bool free, decimal price, bool online, string companyName)
+        public EventRegistredEvent(Guid id, string name, DateTime beginDate, DateTime endDate, bool free, decimal price, bool online, string companyName)
         {
 			Name = name;
 			BeginDate = beginDate;

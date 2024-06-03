@@ -10,5 +10,9 @@ namespace Events.IO.Application.Interfaces
         EventViewModel GetById(Guid id);
         void Update(EventViewModel eventViewModel);
         void Delete(Guid id);
+        void AddAddress(AddressViewModel addressViewModel);
+        void UpdateAddress(AddressViewModel addressViewModel);
+        AddressViewModel GetAddressById(Guid id);
+
     }
 }

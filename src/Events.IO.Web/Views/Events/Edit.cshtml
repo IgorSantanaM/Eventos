@@ -71,7 +71,7 @@
                 <span asp-validation-for="CompanyName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Update Event" class="btn btn-success" />
+                <input  type="submit" id="btSubmit" value="Update Event" class="btn btn-success" />
                 <a asp-action="Index" class="btn btn-info">Back to List</a>
             </div>
         </form>
@@ -109,6 +109,21 @@
             <script>
                 toastr["@notification[0]"]("@notification[1]");
             </script>
+            if(notification[0] == "success")
+            {
+                <script>
+                    toastr.options.onHidden = function () {
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    toastr.options.onClick = function () {
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    toastr.options.onCloseClick = function () {
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    $('#btSubmit').prop("disabled", true);
+                </script>
+            }
         }
     }
 }

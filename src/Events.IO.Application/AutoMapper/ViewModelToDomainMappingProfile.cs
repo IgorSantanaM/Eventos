@@ -16,6 +16,9 @@ namespace Events.IO.Application.AutoMapper
             CreateMap<AddressViewModel, IncludeAddressEventCommand>()
                 .ConstructUsing(c => new IncludeAddressEventCommand(Guid.NewGuid(), c.PublicPlace, c.Number, c.Complement, c.Neighborhood, c.ZipCode, c.City, c.State, c.EventId));
 
+            CreateMap<AddressViewModel, UpdateAddressEventCommand>()
+               .ConstructUsing(c => new UpdateAddressEventCommand(Guid.NewGuid(), c.PublicPlace, c.Number, c.Complement, c.Neighborhood, c.ZipCode, c.City, c.State, c.EventId));
+
             CreateMap<EventViewModel, UpdateEventCommand>()
                .ConstructUsing(c => new UpdateEventCommand(c.Id, c.Name, c.ShortDescription, c.LongDescription, c.BeginDate, c.EndDate, c.Free, c.Price, c.Online, c.CompanyName, c.HostId, c.CategoryId));
 

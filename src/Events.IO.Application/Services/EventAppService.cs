@@ -2,6 +2,7 @@
 using Events.IO.Application.Interfaces;
 using Events.IO.Application.ViewModels;
 using Events.IO.Domain.Core.Bus;
+using Events.IO.Domain.Interface;
 using Events.IO.Domain.DEvents.Commands;
 using Events.IO.Domain.DEvents.Repository;
 
@@ -10,13 +11,15 @@ namespace Events.IO.Application.Services
     public class EventAppService : IEventAppService
     {
         private readonly IBus _bus;
+        private readonly IUser _user;
         private readonly IMapper _mapper;
         private readonly IEventRepository _eventRepository;
-        public EventAppService(IBus bus, IMapper mapper, IEventRepository eventRepository)
+        public EventAppService(IBus bus, IMapper mapper, IEventRepository eventRepository, IUser user)
         {
             _bus = bus;
             _mapper = mapper; 
             _eventRepository = eventRepository;
+            _user = user;
         }
         
         public void Delete(Guid id)
@@ -51,6 +54,24 @@ namespace Events.IO.Application.Services
             _bus.SendCommand(updateEventCommand);
         }
 
+        
+
+        public void AddAddress(AddressViewModel addressViewModel)
+        {
+            var addressCommand = _mapper.Map<IncludeAddressEventCommand>(addressViewModel);
+            _bus.SendCommand(addressCommand);
+        }
+
+        public void UpdateAddress(AddressViewModel addressViewModel)
+        {
+            var addressCommand = _mapper.Map<UpdateAddressEventCommand>(addressViewModel);
+            _bus.SendCommand(addressCommand);
+        }
+
+        public AddressViewModel GetAddressById(Guid id)
+        {
+            return _mapper.Map<AddressViewModel>(_eventRepository.GetAddressById(id));
+        }
         public void Dispose()
         {
             _eventRepository.Dispose();

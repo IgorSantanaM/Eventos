@@ -43,6 +43,8 @@ namespace Events.IO.Infra.CrossCutting.IoC
 
             //Domain - Commands
             services.AddScoped<IHandler<RegistryEventCommand>, EventCommandHandler>();
+            services.AddScoped<IHandler<UpdateAddressEventCommand>, EventCommandHandler>();
+            services.AddScoped<IHandler<IncludeAddressEventCommand>, EventCommandHandler>();
             services.AddScoped<IHandler<UpdateEventCommand>, EventCommandHandler>();
             services.AddScoped<IHandler<DeleteEventCommand>, EventCommandHandler>();
             services.AddScoped<IHandler<RegistryHostCommand>, HostCommandHandler>();
@@ -50,7 +52,7 @@ namespace Events.IO.Infra.CrossCutting.IoC
 
             //Domain - Events
             services.AddScoped<IDomainNotificationHandler<DomainNotification>, DomainNotificationHandler>();
-            services.AddScoped<IHandler<EventRegistradeEvent>, EventEventHandler>();
+            services.AddScoped<IHandler<EventRegistredEvent>, EventEventHandler>();
             services.AddScoped<IHandler<EventUpdatedEvent>, EventEventHandler>();
             services.AddScoped<IHandler<EventDeletedEvent>, EventEventHandler>();
             services.AddScoped<IHandler<HostRegistredEvent>, HostEventHandler>();

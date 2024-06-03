@@ -29,7 +29,7 @@
     <div class="form-group">
         <label asp-for="Address.State" class="col-md-2 control-label"></label>
         <div class="col-md-10">
-            <input asp-for="Address.State" class="form-control" />
+            @Html.Partial("_States")
             <span asp-validation-for="Address.State" class="text-black danger"></span>
         </div>
     </div>

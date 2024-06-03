@@ -24,6 +24,7 @@
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
+    
 
     $('#BeginDate').datepicker({
         format: "mm/dd/yyyy",
