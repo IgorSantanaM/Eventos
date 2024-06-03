@@ -1,15 +1,15 @@
 ﻿@using Events.IO.Application.ViewModels
 @model Events.IO.Application.ViewModels.EventViewModel
 
-<h1>Registry new Event</h1>
+<h1>Register New Event</h1>
 
 <form asp-action="Create">
     <div class="form-horizontal">
-        <h4> Fill in all te requirements</h4>
+        <h4>Fill in all the requirements</h4>
         <hr />
 
         <vc:summary></vc:summary>
-         
+
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -22,122 +22,134 @@
             <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="ShortDescription" class="form-control" />
-                <span asp-validation-for="ShortDescription" class="text-da nger"></span>
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LongDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+               <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
+                <span asp-validation-for="LongDescription" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.Partial("_Categories")
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BeginDate" class="control-label"></label>
+            <input asp-for="BeginDate" class="form-control" />
+            <span asp-validation-for="BeginDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EndDate" class="control-label"></label>
+            <input asp-for="EndDate" class="form-control" />
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CompanyName" class="control-label"></label>
+            <input asp-for="CompanyName" class="form-control" />
+            <span asp-validation-for="CompanyName" class="text-danger"></span>
+        </div>
+
+        <div id="AddressForm">
+            <hr />
+            <h3>Address of the Event</h3>
+
+            <div class="form-group">
+                <label asp-for="Address.PublicPlace" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Address.PublicPlace" class="form-control" />
+                    <span asp-validation-for="Address.PublicPlace" class="text-danger"></span>
+                </div>
             </div>
 
             <div class="form-group">
-                <label asp-for="LongDescription" class="col-md-2 control-label"></label>
+                <label asp-for="Address.Number" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="LongDescription" class="form-control" />
-                    <span asp-validation-for="LongDescription" class="text-da nger"></span>
+                    <input asp-for="Address.Number" class="form-control" />
+                    <span asp-validation-for="Address.Number" class="text-danger"></span>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="Category" class="col-md-2 control-label"></label>
-                    <div class="col-md-10">
-                        @Html.Partial("_Categories")
-                        <span asp-validation-for="Category" class="text-danger"></span>
-                    </div>
+            <div class="form-group">
+                <label asp-for="Address.City" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Address.City" class="form-control" />
+                    <span asp-validation-for="Address.City" class="text-danger"></span>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="BeginDate" class="control-label"></label>
-                    <input asp-for="BeginDate" class="form-control" />
-                    <span asp-validation-for="BeginDate" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="Address.State" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Address.State" class="form-control" />
+                    <span asp-validation-for="Address.State" class="text-danger"></span>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="EndDate" class="control-label"></label>
-                    <input asp-for="EndDate" class="form-control" />
-                    <span asp-validation-for="EndDate" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="Address.Neighborhood" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Address.Neighborhood" class="form-control" />
+                    <span asp-validation-for="Address.Neighborhood" class="text-danger"></span>
                 </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Price" class="control-label"></label>
-                    <input asp-for="Price" class="form-control" />
-                    <span asp-validation-for="Price" class="text-danger"></span>
-                </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CompanyName" class="control-label"></label>
-                    <input asp-for="CompanyName" class="form-control" />
-                    <span asp-validation-for="CompanyName" class="text-danger"></span>
-                </div>
+            </div>
 
-                <div id="AddressForm">
-                    <hr />
-                    <h3>Address of the Event</h3>
-                        <div class="form-group">
-                            <label asp-for="Address.PublicPlace" class="col-md-2 control-label"></label>
-                            <div class="col-md-10">
-                                <input asp-for="Address.PublicPlace" class="form-control" />
-                                <span asp-validation-for="Address.PublicPlace" class="text-black danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Address.Number" class="col-md-2 control-label"></label>
-                            <div class="col-md-10">
-                                <input asp-for="Address.Number" class="form-control" />
-                                <span asp-validation-for="Address.Number" class="text-black danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                                <label asp-for="Address.City" class="col-md-2 control-label"></label>
-                            <div class="col-md-10">
-                                    <input asp-for="Address.City" class="form-control" />
-                                    <span asp-validation-for="Address.City" class="text-black danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                                    <label asp-for="Address.State" class="col-md-2 control-label"></label>
-                            <div class="col-md-10">
-                                        <input asp-for="Address.State" class="form-control" />
-                                        <span asp-validation-for="Address.State" class="text-black danger"></span>
-                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Address.Neighborhood" class="col-md-2 control-label"></label>
-                             <div class="col-md-10">
-                                 <input asp-for="Address.Neighborhood" class="form-control" />
-                                <span asp-validation-for="Address.State" class="text-black danger"></span>
-                            </div>
-                        </div>
-                    <div class="form-group">
-                        <label asp-for="Address.ZipCode" class="col-md-2 control-label"></label>
-                        <div class="col-md-10">
-                            <input asp-for="Address.ZipCode" class="form-control" />
-                            <span asp-validation-for="Address.ZipCode" class="text-black danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Address.Complement" class="col-md-2 control-label"></label>
-                        <div class="col-md-10">
-                            <input asp-for="Address.Complement" class="form-control" />
-                            <span asp-validation-for="Address.Complement" class="text-black danger"></span>
-                        </div>
-                    </div>
+            <div class="form-group">
+                <label asp-for="Address.ZipCode" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Address.ZipCode" class="form-control" />
+                    <span asp-validation-for="Address.ZipCode" class="text-danger"></span>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <input type="submit" value="Registry" class="btn btn-success" />
-                    <a asp-action="Index" class="btn btn-info">Back to List</a>
+            <div class="form-group">
+                <label asp-for="Address.Complement" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Address.Complement" class="form-control" />
+                    <span asp-validation-for="Address.Complement" class="text-danger"></span>
                 </div>
+            </div>
+        </div>
 
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-success" />
+            <a asp-action="Index" class="btn btn-info">Back to List</a>
+        </div>
+    </div>
 </form>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
 
     <script>
         EventValidations();
@@ -146,10 +158,9 @@
     @{
         if (ViewBag.PostReturn != null)
         {
-
-            var notification = ViewBag.PostReturn.ToString().Split(",");
+            var notification = ViewBag.PostReturn.ToString().Split(',');
             <script>
-                toastr["@notification[0]"]("notification[1]");
+                toastr["@notification[0]"]("@notification[1]");
             </script>
         }
     }

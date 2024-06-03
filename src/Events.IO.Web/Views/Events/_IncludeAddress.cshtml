@@ -1,13 +1,9 @@
-﻿@model Events.IO.Application.ViewModels.EventsViewModel
-
-@{
-    ViewData["title"] "Include Address";
-}
+﻿@model Events.IO.Application.ViewModels.EventViewModel
 <div class="model-header">
     <button type="button" class="close" data-dismiss="modal">
         <span aria-hidden="true">x</span><span class="sr-only">Close</span>
     </button>
-    <h4 class="modal-title">@ViewData["Title"]</h4>
+    <h4 class="modal-title">Include Address</h4>
 </div>
 
 <form asp-action="IncludeAddress">
@@ -15,7 +11,7 @@
         <div class="form-horizontal">
             <vc:summary></vc:summary>
              
-            @Html.Partial(_Address)
+            @Html.Partial("_Address");
             
             <div class="modal-footer">
                 <div class="col-md-offset-2 col-md-10">

@@ -4,21 +4,26 @@ using Events.IO.Domain.DEvents;
 using Events.IO.Domain.DEvents.Repository;
 using Events.IO.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Events.IO.Infra.Data.Repository
 {
     public class EventRepository : Repository<DEvent>, IEventRepository
     {
         private readonly EventsContext _context;
+
         public EventRepository(EventsContext context) : base(context)
         {
             _context = context;
         }
+
         public override IEnumerable<DEvent> GetAll()
         {
-            var sql = "SELECT * FROM EVENTS E " +
-                    "WHERE E.DELETED = 0 " +
-                    "ORDER BY E.ENDDATE DESC";
+            var sql = @"SELECT * FROM Events E 
+                        WHERE E.Deleted = 0 
+                        ORDER BY E.EndDate DESC";
 
             return Db.Database.GetDbConnection().Query<DEvent>(sql);
         }
@@ -26,7 +31,6 @@ namespace Events.IO.Infra.Data.Repository
         public void AddAddress(Address address)
         {
             Db.Addresses.Add(address);
-
         }
 
         public void UpdateAddress(Address address)
@@ -34,10 +38,10 @@ namespace Events.IO.Infra.Data.Repository
             Db.Addresses.Update(address);
         }
 
-        public  Address GetAddressById(Guid id)
+        public Address GetAddressById(Guid id)
         {
-            var sql = @"SELECT * FROM Adresses A " +
-                      "WHERE E.Id = @udi";
+            var sql = @"SELECT * FROM Addresses A 
+                        WHERE A.Id = @uid";
 
             IEnumerable<Address> addresses = Db.Database.GetDbConnection().Query<Address>(sql, new { uid = id });
 
@@ -46,29 +50,44 @@ namespace Events.IO.Infra.Data.Repository
 
         public IEnumerable<DEvent> GetEventByHost(Guid hostId)
         {
-            string sql = @"SELECT * FROM Events E " +
-                      "WHERE E.DELETED = 0 " +
-                      "AND E.HOST = @oid " +
-                      "ORDER BY E.ENDDATE DESC";
+            var sql = @"SELECT * FROM Events E 
+                        WHERE E.Deleted = 0 
+                        AND E.HostId = @hostId 
+                        ORDER BY E.EndDate DESC";
 
-            return Db.Database.GetDbConnection().Query<DEvent>(sql, new { oid = hostId });
+            return Db.Database.GetDbConnection().Query<DEvent>(sql, new { hostId });
         }
+
         public override DEvent GetById(Guid id)
         {
-            string sql = @"SELECT * FROM Events E " +
-                      "LEFT JOIN Address EN " +
-                      "ON E.Id = EN.EventId " +
-                      "WHERE E.Id = @uid";
+            var sql = @"SELECT * FROM Events E 
+                        LEFT JOIN Addresses A ON E.Id = A.EventId 
+                        WHERE E.Id = @uid";
 
-            var devent = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(sql,
-            (e, en) =>
-            {
-                if(en != null)
-                    e.AssignAddress(en);
+            var eventDictionary = new Dictionary<Guid, DEvent>();
 
-                return e;
-            }, new {uid = id });
-                return devent.FirstOrDefault(); 
+            var devents = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(
+                sql,
+                (devent, address) =>
+                {
+                    if (!eventDictionary.TryGetValue(devent.Id, out var eventEntry))
+                    {
+                        eventEntry = devent;
+                        eventDictionary.Add(eventEntry.Id, eventEntry);
+                    }
+
+                    if (address != null)
+                    {
+                        eventEntry.AssignAddress(address);
+                    }
+
+                    return eventEntry;
+                },
+                new { uid = id },
+                splitOn: "Id"
+            );
+
+            return devents.FirstOrDefault();
         }
     }
 }
