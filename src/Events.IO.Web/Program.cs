@@ -1,14 +1,10 @@
-using Events.IO.Domain.Interface;
 using Events.IO.Infra.CrossCutting.AspNetFilters;
 using Events.IO.Infra.CrossCutting.Bus;
 using Events.IO.Infra.CrossCutting.Identity.Data;
-using Events.IO.Infra.CrossCutting.Identity.Models;
 using Events.IO.Infra.CrossCutting.IoC;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 

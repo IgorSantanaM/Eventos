@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <UserSecretsId>5d65be88-e535-48f0-9fa6-1c9f83ec32db</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fluent.Infrastructure" Version="2.0.0-beta-01" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Events.IO.Domain.Core\Events.IO.Domain.Core.csproj" />
+    <ProjectReference Include="..\Events.IO.Domain\Events.IO.Domain.csproj" />
+    <ProjectReference Include="..\Events.IO.Infra.CrossCutting.AspNetFilters\Events.IO.Infra.CrossCutting.AspNetFilters.csproj" />
+    <ProjectReference Include="..\Events.IO.Infra.CrossCutting.IoC\Events.IO.Infra.CrossCutting.IoC.csproj" />
+  </ItemGroup>
+
+</Project>
