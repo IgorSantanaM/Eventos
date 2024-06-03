@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Events.IO.Site.Controllers
 {
+    [Route("")]
     public class EventsController : BaseController
     {
         private readonly IEventAppService _eventAppService;
@@ -17,17 +18,19 @@ namespace Events.IO.Site.Controllers
         {
             _eventAppService = eventAppService;
         }
-
+        [Route("")]
+        [Route("Next-Events")]
         public IActionResult Index()
         {
             return View(_eventAppService.GetAll());
         }
-        [Authorize] 
+        [Route("my-events")]
+        [Authorize(Policy = "CanReadEvents")]
         public IActionResult MyEvents()
         {
             return View(_eventAppService.GetEventByHost(HostId));
         }
-
+        [Route("details-of-the-event/{id:guid}")]
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -43,14 +46,19 @@ namespace Events.IO.Site.Controllers
 
             return View(eventViewModel);
         }
-        [Authorize]
+
+        [Route("new-event")]
+        [Authorize(Policy = "CanAddEvents")]
+
         public IActionResult Create()
         {
             return View();
         }
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("new-event")]
+        [Authorize(Policy = "CanAddEvents")]
+
         public IActionResult Create(EventViewModel eventViewModel)
         {
             if (!ModelState.IsValid) return View(eventViewModel);
@@ -62,7 +70,9 @@ namespace Events.IO.Site.Controllers
 
             return View(eventViewModel);
         }
-        [Authorize]
+        [Route("edit-event/{id:guid}")]
+        [Authorize(Policy = "CanAddEvents")]
+
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -86,9 +96,13 @@ namespace Events.IO.Site.Controllers
             }
             return View(eventViewModel);
         }
-        [Authorize]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("edit-event/{id:guid}")]
+        [Authorize(Policy = "CanAddEvents")]
+
+
         public IActionResult Edit(EventViewModel eventViewModel)
         {
             if (ValidateAuthorEvent(eventViewModel))
@@ -113,7 +127,9 @@ namespace Events.IO.Site.Controllers
 
             return View(eventViewModel);
         }
-        [Authorize]
+        [Authorize(Policy = "CanAddEvents")]
+        [Route("delete-event/{id:guid}")]
+
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -135,8 +151,9 @@ namespace Events.IO.Site.Controllers
 
             return View(eventViewModel);
         }
-        [Authorize]
+        [Authorize(Policy = "CanAddEvents")]
         [HttpPost, ActionName("Delete")]
+        [Route("delete-event/{id:guid}")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
@@ -147,6 +164,8 @@ namespace Events.IO.Site.Controllers
             _eventAppService.Delete(id);
             return RedirectToAction("Index");
         }
+        [Route("include-address/{id:guid}")]
+        [Authorize(Policy = "CanAddEvents")]
         public IActionResult IncludeAddress(Guid? id)
         {
             if(id == null)
@@ -156,6 +175,8 @@ namespace Events.IO.Site.Controllers
             var eventViewModel = _eventAppService.GetById(id.Value);
             return PartialView("_IncludeAddress", eventViewModel);
         }
+        [Route("update-address/{id:guid}")]
+        [Authorize(Policy = "CanAddEvents")]
         public IActionResult UpdateAddress(Guid? id)
         {
             if (id == null)
@@ -167,6 +188,8 @@ namespace Events.IO.Site.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("include-address/{id:guid}")]
+        [Authorize(Policy = "CanAddEvents")]
         public IActionResult IncludeAddress(EventViewModel eventViewModel)
         {
             ModelState.Clear();
@@ -182,6 +205,8 @@ namespace Events.IO.Site.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("update-address/{id:guid}")]
+        [Authorize(Policy = "CanAddEvents")]
         public IActionResult UpdateAddress(EventViewModel eventViewModel)
         {
             ModelState.Clear();
@@ -194,6 +219,7 @@ namespace Events.IO.Site.Controllers
             }
             return PartialView("_UpdateAddress", eventViewModel);
         }
+        [Route("list-address/{id:guid}")]
         public IActionResult GetAddress(Guid id)
         {
             return PartialView("_DetailsAddress", _eventAppService.GetById(id));

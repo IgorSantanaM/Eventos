@@ -12,6 +12,7 @@ using Events.IO.Domain.Hosts.Commands;
 using Events.IO.Domain.Hosts.Events;
 using Events.IO.Domain.Hosts.Repository;
 using Events.IO.Domain.Interface;
+using Events.IO.Infra.CrossCutting.AspNetFilters;
 using Events.IO.Infra.CrossCutting.Bus;
 using Events.IO.Infra.CrossCutting.Identity.Models;
 using Events.IO.Infra.Data.Context;
@@ -21,6 +22,7 @@ using FluentValidation.Validators;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.Reflection;
 
 
@@ -63,7 +65,7 @@ namespace Events.IO.Infra.CrossCutting.IoC
             services.AddScoped<IHostRepository, HostRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<EventsContext>();
-
+            
             //Infra - Bus
             services.AddScoped<IBus, InMemoryBus>();
 
@@ -71,7 +73,12 @@ namespace Events.IO.Infra.CrossCutting.IoC
 
             services.AddScoped<IUser, AspNetUser>();
 
+            //Infra - Filters
 
+            services.AddScoped<ILogger<GlobalExceptionHandlingFilter>, Logger<GlobalExceptionHandlingFilter>>();
+            services.AddScoped<ILogger<GlobalActionLogger>, Logger<GlobalActionLogger>>();
+            services.AddScoped<GlobalExceptionHandlingFilter>();
+            services.AddScoped<GlobalActionLogger>();
         }
     }
 }

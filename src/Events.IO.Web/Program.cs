@@ -1,10 +1,14 @@
 using Events.IO.Domain.Interface;
+using Events.IO.Infra.CrossCutting.AspNetFilters;
 using Events.IO.Infra.CrossCutting.Bus;
 using Events.IO.Infra.CrossCutting.Identity.Data;
 using Events.IO.Infra.CrossCutting.Identity.Models;
 using Events.IO.Infra.CrossCutting.IoC;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +22,25 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("CanReadEvents", policy => policy.RequireClaim("Events", "Read"));
+    options.AddPolicy("CanAddEvents", policy => policy.RequireClaim("Events", "Add"));
+});
+
 RegisterServices(builder.Services);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddLogging();
+builder.Services.AddMvc(options =>
+{
+    options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalExceptionHandlingFilter)));
+    options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalActionLogger)));
+});
 
 var app = builder.Build();
 
+app.UseElmahIo();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -31,7 +48,8 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/error-of-application");
+    app.UseStatusCodePagesWithReExecute("/error-of-application/{0}");
     app.UseHsts();
 }
 

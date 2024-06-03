@@ -54,6 +54,7 @@ namespace Events.IO.Infra.Data.Repository
                         WHERE E.Deleted = 0 
                         AND E.HostId = @hostId 
                         ORDER BY E.EndDate DESC";
+           // throw new Exception("An error occurred");
 
             return Db.Database.GetDbConnection().Query<DEvent>(sql, new { hostId });
         }
