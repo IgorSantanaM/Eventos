@@ -31,8 +31,12 @@ namespace Events.IO.Services.Api.Controllers
         [System.Web.Mvc.HttpPost]
         [AllowAnonymous]
         [System.Web.Mvc.Route("new-account")]
-        public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterViewModel model, int version)
         {
+            if(version == 2)
+            {
+                return Response(new { Message = "API v2 doesnt exist" });
+            }
             if (!ModelState.IsValid) return Response(model);
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -81,8 +85,6 @@ namespace Events.IO.Services.Api.Controllers
             {
                 NotifyErrors(result.ToString(), error.Description);
             }
-
         }
-
     }
 }

@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<Events.IO.Application.ViewModels.EventViewModel>
 
-
 <h1>My Events</h1>
 <div class="row">
     <div class="col-md-12">
         <div class="pull-left">
             <a asp-action="Create" class="btn btn-primary">
                 <span title="New Event" class="glyphicon glyphicon-plus-sign"></span> New Event
-
             </a>
         </div>
     </div>
@@ -16,68 +14,66 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>    
-                @Html.DisplayNameFor(model => model.BeginDate)
+                @Html.DisplayNameFor(model => model.First().Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EndDate)
+                @Html.DisplayNameFor(model => model.First().BeginDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.First().EndDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Online)
+                Price
+            </th>
+            <th>
+                Online
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
 
-            <td>
-                @item.BeginDate.ToString("d")
-            </td>
+                <td>
+                    @item.BeginDate.ToString("d")
+                </td>
 
-            <td>
-                @item.BeginDate.ToString("d")
-            </td>
+                <td>
+                    @item.EndDate.ToString("d")
+                </td>
 
-            <td>
-                    @{
-                        if(item.Free)
-                        {
-                            @Html.DisplayName("Free")
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(modelItem =>item.Price)
-                        }
+                <td>
+                    @if (item.Free)
+                    {
+                        <span>Free</span>
                     }
-            </td>
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.Price)
+                    }
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Online)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Online)
+                </td>
 
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">
                         ✏️
-                </a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">
                         🔍
-                </a> 
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
                         🗑️
-                </a>
-            </td>
-
-        </tr>
-}
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
