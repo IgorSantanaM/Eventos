@@ -8,7 +8,7 @@
         <h4>Fill in all the requirements</h4>
         <hr />
 
-        <vc:summary></vc:summary>
+        <vc:summary />
 
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
@@ -153,6 +153,7 @@
 
     <script>
         EventValidations();
+        AjaxModal();
     </script>
 
     @{
@@ -166,13 +167,13 @@
             {
                 <script>
                     toastr.options.onHidden = function () {
-                        window.locations = "http://localhost:/events/myevents"
+                        window.locations = "http://localhost:5252/myevents"
                     }
                     toastr.options.onClick = function () {
-                        window.locations = "http://localhost:/events/myevents"
+                        window.locations = "http://localhost:5252/myevents"
                     }
                     toastr.options.onCloseClick = function () {
-                        window.locations = "http://localhost:/events/myevents"
+                        window.locations = "http://localhost:5252/myevents"
                     }
                     $('#btSubmit').prop("disabled", true);
                 </script>

@@ -35,7 +35,6 @@ builder.Services.AddLogging();
 builder.Services.AddMvc(options =>
 {
     options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalExceptionHandlingFilter)));
-    options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalActionLogger)));
 });
 
 var app = builder.Build();

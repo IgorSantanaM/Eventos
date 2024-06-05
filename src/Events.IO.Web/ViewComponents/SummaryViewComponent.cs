@@ -8,7 +8,6 @@ namespace Events.IO.Web.ViewComponents
     public class SummaryViewComponent : ViewComponent
     {
         private readonly IDomainNotificationHandler<DomainNotification> _notifications;
-
         public SummaryViewComponent(IDomainNotificationHandler<DomainNotification> notifications)
         {
             _notifications = notifications;
