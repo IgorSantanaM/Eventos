@@ -61,13 +61,11 @@ namespace Events.IO.Site.Controllers
 
         public IActionResult Create(EventViewModel eventViewModel)
         {
-            if (!ModelState.IsValid) return View(eventViewModel);
+                if (!ModelState.IsValid) return View(eventViewModel);
+                eventViewModel.HostId = HostId;
+                _eventAppService.Registry(eventViewModel);
 
-            eventViewModel.HostId = HostId;
-            _eventAppService.Registry(eventViewModel);
-
-            ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
-
+                ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
             return View(eventViewModel);
         }
         [Route("edit-event/{id:guid}")]

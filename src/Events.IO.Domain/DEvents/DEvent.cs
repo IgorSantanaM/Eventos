@@ -1,6 +1,7 @@
 ﻿using Events.IO.Domain.Core.Models;
 using FluentValidation;
 using Events.IO.Domain.Hosts;
+using FluentValidation.Results;
 
 namespace Events.IO.Domain.DEvents
 {
@@ -41,7 +42,6 @@ namespace Events.IO.Domain.DEvents
         public virtual Address Address { get; private set; }
         public virtual Host Host { get; private set; }
 
-
         public void AssignAddress(Address address)
         {
             if (!address.IsValidate()) return;
@@ -72,8 +72,7 @@ namespace Events.IO.Domain.DEvents
             LocalValidation();
             PriceValidation();
             ValidationResult = Validate(this);
-
-            //Validacoes adicionais
+            
             AddressValidate();
         }
         private void NameValidation()

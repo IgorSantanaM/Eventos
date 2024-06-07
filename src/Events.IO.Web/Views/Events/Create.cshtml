@@ -29,7 +29,7 @@
         <div class="form-group">
             <label asp-for="LongDescription" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-               <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
+                <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
                 <span asp-validation-for="LongDescription" class="text-danger"></span>
             </div>
         </div>
@@ -56,19 +56,19 @@
 
         <div class="form-group form-check">
             <label class="form-check-label">
-                <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
+                <input class="form-check-input" asp-for="Free" id="Free" /> @Html.DisplayNameFor(model => model.Free)
             </label>
         </div>
 
         <div class="form-group">
             <label asp-for="Price" class="control-label"></label>
-            <input asp-for="Price" class="form-control" />
+            <input asp-for="Price" class="form-control" id="Price"/>
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
 
         <div class="form-group form-check">
             <label class="form-check-label">
-                <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
+                <input class="form-check-input" asp-for="Online" id="Online" /> @Html.DisplayNameFor(model => model.Online)
             </label>
         </div>
 
@@ -167,13 +167,13 @@
             {
                 <script>
                     toastr.options.onHidden = function () {
-                        window.locations = "http://localhost:5252/myevents"
+                        window.location = "http://localhost:5252/my-events";
                     }
                     toastr.options.onClick = function () {
-                        window.locations = "http://localhost:5252/myevents"
+                        window.location = "http://localhost:5252/my-events";
                     }
                     toastr.options.onCloseClick = function () {
-                        window.locations = "http://localhost:5252/myevents"
+                        window.location = "http://localhost:5252/my-events";
                     }
                     $('#btSubmit').prop("disabled", true);
                 </script>

@@ -35,37 +35,38 @@ namespace Events.IO.Domain.DEvents
         protected Address() { }
         public override bool IsValidate()
         {
-            #region ValidacoesEnd
+                #region ValidationsAddress
 
-            RuleFor(c => c.PublicPlace)
-                .NotEmpty().WithMessage("O longradouro precisa ser fornecido")
-                .Length(2, 150).WithMessage("O longradouro precisa ter entre 2 e 150 caracteres");
+                RuleFor(c => c.PublicPlace)
+                .NotEmpty().WithMessage("The street name must be provided")
+                .Length(2, 150).WithMessage("The street name must be between 2 and 150 characters");
 
             RuleFor(c => c.Neighborhood)
-                .NotEmpty().WithMessage("O bairro precisa ser fornecido")
-                .Length(2, 150).WithMessage("O bairro precisa ter entre 2 e 150 caracteres");
+                .NotEmpty().WithMessage("The neighborhood must be provided")
+                .Length(2, 150).WithMessage("The neighborhood must be between 2 and 150 characters");
 
             RuleFor(c => c.ZipCode)
-                .NotEmpty().WithMessage("O cep precisa ser fornecido")
-                .Length(8).WithMessage("O cep precisa ter entre 8 caracteres");
+                .NotEmpty().WithMessage("The ZIP code must be provided")
+                .Length(8).WithMessage("The ZIP code must be 8 characters long");
 
             RuleFor(c => c.City)
-                .NotEmpty().WithMessage("O cidade precisa ser fornecido")
-                .Length(2, 150).WithMessage("O cidade precisa ter entre 2 e 150 caracteres");
+                .NotEmpty().WithMessage("The city must be provided")
+                .Length(2, 150).WithMessage("The city must be between 2 and 150 characters");
 
             RuleFor(c => c.State)
-                .NotEmpty().WithMessage("O estado precisa ser fornecido")
-                .Length(2, 150).WithMessage("O estado precisa ter entre 2 e 150 caracteres");
+                .NotEmpty().WithMessage("The state must be provided")
+                .Length(2, 150).WithMessage("The state must be between 2 and 150 characters");
 
             RuleFor(c => c.Number)
-                .NotEmpty().WithMessage("O numero precisa ser fornecido")
-                .Length(1, 10).WithMessage("O numero precisa ter entre 1 e 10 caracteres");
+                .NotEmpty().WithMessage("The number must be provided")
+                .Length(1, 10).WithMessage("The number must be between 1 and 10 characters");
 
             ValidationResult = Validate(this);
 
             return ValidationResult.IsValid;
 
             #endregion
+
 
         }
     }
