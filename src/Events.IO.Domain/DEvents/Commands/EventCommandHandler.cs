@@ -25,8 +25,8 @@ namespace Events.IO.Domain.DEvents.Commands
             _user = user;
         }
         public void Handle(RegistryEventCommand message)
-        { 
-            var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
+        {
+             var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
         
             var devent = DEvent.EventFactory.NewCompletedEvent(
                 message.Id,

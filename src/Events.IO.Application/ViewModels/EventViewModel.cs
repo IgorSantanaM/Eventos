@@ -46,7 +46,7 @@ namespace Events.IO.Application.ViewModels
 
         [Display(Name = "Company / Host Group")]
         public string CompanyName { get; set; }
-        public AddressViewModel Address { get; set; }
+        public AddressViewModel? Address { get; set; }
         public CategoryViewModel Category { get; set; }
         public Guid CategoryId { get; set; }
         public Guid HostId { get; set; }

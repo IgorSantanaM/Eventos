@@ -54,22 +54,29 @@
             <span asp-validation-for="EndDate" class="text-danger"></span>
         </div>
 
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="Free" id="Free" /> @Html.DisplayNameFor(model => model.Free)
-            </label>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Free" />
+                    <label asp-for="Free"></label>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
-            <label asp-for="Price" class="control-label"></label>
-            <input asp-for="Price" class="form-control" id="Price"/>
+            <label asp-for="Price" class="col-md-2 control-label"></label>
+            <div class="col-md-10"></div>
+            <input data-val-number="the price is in the wrong format" asp-for="Price"/>
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
 
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="Online" id="Online" /> @Html.DisplayNameFor(model => model.Online)
-            </label>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Online" />
+                    <label asp-for="Online"></label>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
@@ -78,7 +85,7 @@
             <span asp-validation-for="CompanyName" class="text-danger"></span>
         </div>
 
-        <div id="AddressForm">
+        <!--div id="AddressForm">
             <hr />
             <h3>Address of the Event</h3>
 
@@ -138,7 +145,8 @@
                 </div>
             </div>
         </div>
-
+        -->
+        
         <div class="form-group">
             <input type="submit" id="btSubmit" value="Register" class="btn btn-success" />
             <a asp-action="Index" class="btn btn-info">Back to List</a>

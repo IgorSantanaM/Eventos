@@ -27,8 +27,9 @@
             CompanyName = companyName;
             HostId = hostId;
             CategoryId = categoryId;
+           
             Address = address;
         }
-        public IncludeAddressEventCommand Address { get; set; }
+      public IncludeAddressEventCommand Address { get; set; }
     }
 }

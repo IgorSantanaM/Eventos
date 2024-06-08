@@ -59,21 +59,20 @@ namespace Events.IO.Domain.DEvents
         }
         public override bool IsValidate()
         {
-			Authenticate();
+            ValidatingTheEvent();
             return ValidationResult.IsValid;
         }
         #region Validations
 
-        private void Authenticate()
+        private void ValidatingTheEvent()
         {
             NameValidation();
+            PriceValidation();
             CompanyNameValidation();
             DateValidation();
             LocalValidation();
-            PriceValidation();
             ValidationResult = Validate(this);
             
-            AddressValidate();
         }
         private void NameValidation()
         {
@@ -83,51 +82,47 @@ namespace Events.IO.Domain.DEvents
         }
         private void PriceValidation()
         {
-            RuleFor(c => c.Price)
-                .Must((c, price) => !c.Free || (price >= 0 && price <= 50000))
-                .WithMessage("The event price must be between 0 and 50000 if not free.");
+            if (!Free)
+                RuleFor(c => c.Price)
+                    .ExclusiveBetween(1, 50000)
+                    .WithMessage("The price must be between 1.00 and 50.000");
+
+
+            if (Free)
+                RuleFor(c => c.Price)
+                    .ExclusiveBetween(0,0).When(e=>e.Free)
+                    .WithMessage("The price must be between 0 since its free");
         }
+
 
         private void DateValidation()
         {
             RuleFor(c => c.BeginDate)
-                .LessThan(c => c.EndDate)
-                .WithMessage("The event cannot begin after its end");
+                .GreaterThan(c => c.EndDate)
+                .WithMessage("The begin date must be later than the end date.");
 
             RuleFor(c => c.BeginDate)
-                .GreaterThan(DateTime.Now)
+                .LessThan(DateTime.Now)
                 .WithMessage("The event cannot begin before the current date");
         }
         private void LocalValidation()
         {
             if (Online)
                 RuleFor(c => c.Address)
-                    .Null().When(c => c.Online)
+                    .Null().When(c => c.Online == true)
                     .WithMessage("The event don't need an address since it's online.");
-
 
             if (!Online)
                 RuleFor(c => c.Address)
                     .NotNull().When(c => c.Online == false)
                     .WithMessage("The event address must be declared.");
+
         }
         private void CompanyNameValidation()
         {
             RuleFor(c => c.CompanyName)
                 .NotEmpty().WithMessage("The host name must be declared")
                 .Length(2, 150).WithMessage("The host name must be between 2 and 150 chars.");
-        }
-
-
-        private void AddressValidate()
-        {
-            if (Online) return;
-            if (Address.IsValidate()) return;
-
-            foreach(var error in Address.ValidationResult.Errors)
-            {
-                ValidationResult.Errors.Add(error);
-            }
         }
         #endregion
 
@@ -159,7 +154,7 @@ namespace Events.IO.Domain.DEvents
                     Price = price,
                     Online = online,
                     CompanyName = companyName,
-                    Address = address,
+                   Address = address,
                     CategoryId = categoryId
 				};
                 if(hostId.HasValue )

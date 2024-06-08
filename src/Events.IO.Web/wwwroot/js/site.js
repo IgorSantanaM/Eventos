@@ -59,9 +59,11 @@
 
         function ShowPrice() {
             if ($inputFree.is(":checked")) {
-                $("#Price").prop("disabled", true)
+                $("#Price").val("0");
+                $("#Price").prop("disabled", true);
             } else {
-                $("#Price").prop("disabled", false)
+                $("#Price").val("");
+                $("#Price").prop("disabled", false);
             }
         }
 

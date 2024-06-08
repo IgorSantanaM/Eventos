@@ -58,7 +58,6 @@ namespace Events.IO.Site.Controllers
         [ValidateAntiForgeryToken]
         [Route("new-event")]
         [Authorize(Policy = "CanAddEvents")]
-
         public IActionResult Create(EventViewModel eventViewModel)
         {
                 if (!ModelState.IsValid) return View(eventViewModel);
@@ -99,8 +98,6 @@ namespace Events.IO.Site.Controllers
         [ValidateAntiForgeryToken]
         [Route("edit-event/{id:guid}")]
         [Authorize(Policy = "CanAddEvents")]
-
-
         public IActionResult Edit(EventViewModel eventViewModel)
         {
             if (ValidateAuthorEvent(eventViewModel))
@@ -127,7 +124,6 @@ namespace Events.IO.Site.Controllers
         }
         [Authorize(Policy = "CanAddEvents")]
         [Route("delete-event/{id:guid}")]
-
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -208,7 +204,7 @@ namespace Events.IO.Site.Controllers
         public IActionResult UpdateAddress(EventViewModel eventViewModel)
         {
             ModelState.Clear();
-            _eventAppService.UpdateAddress(eventViewModel.Address);
+         _eventAppService.UpdateAddress(eventViewModel.Address);
 
             if (ValidOperation())
             {
