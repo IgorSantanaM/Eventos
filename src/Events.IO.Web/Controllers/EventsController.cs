@@ -60,8 +60,10 @@ namespace Events.IO.Site.Controllers
         [Authorize(Policy = "CanAddEvents")]
         public IActionResult Create(EventViewModel eventViewModel)
         {
-                if (!ModelState.IsValid) return View(eventViewModel);
+            if (!ModelState.IsValid) return View(eventViewModel);
+
                 eventViewModel.HostId = HostId;
+
                 _eventAppService.Registry(eventViewModel);
 
                 ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
@@ -187,6 +189,8 @@ namespace Events.IO.Site.Controllers
         public IActionResult IncludeAddress(EventViewModel eventViewModel)
         {
             ModelState.Clear();
+
+
             eventViewModel.Address.EventId = eventViewModel.Id;
             _eventAppService.AddAddress(eventViewModel.Address);
 
@@ -204,6 +208,7 @@ namespace Events.IO.Site.Controllers
         public IActionResult UpdateAddress(EventViewModel eventViewModel)
         {
             ModelState.Clear();
+
          _eventAppService.UpdateAddress(eventViewModel.Address);
 
             if (ValidOperation())

@@ -69,7 +69,7 @@ namespace Events.IO.Domain.DEvents.Commands
             if(!devent.Online && devent.Address == null)
             {
                 _bus.RaiseEvent(new DomainNotification(message.MessageType, "You cannot update an event without the address."));
-                return;
+                return; 
             }
             if (!ValidEvent(devent)) return;
 
@@ -99,11 +99,11 @@ namespace Events.IO.Domain.DEvents.Commands
                 _bus.RaiseEvent(new EventDeletedEvent(message.Id));
             }
         }
-        private bool ValidEvent(DEvent evento)
+        private bool ValidEvent(DEvent devent)
         {
-            if (evento.IsValidate()) return true;
+            if (devent.IsValidate()) return true;
 
-            NotifyErrorValidations(evento.ValidationResult);
+            NotifyErrorValidations(devent.ValidationResult);
 
             return false;
         }

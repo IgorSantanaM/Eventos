@@ -38,7 +38,7 @@
     });
 
     // Toggle visibility of address and price fields based on online and free checkboxes
-    $(document).ready(function () {
+    $(document)(function () {
         var $inputOnline = $("#Online");
         var $inputFree = $("#Free");
 
@@ -66,7 +66,6 @@
                 $("#Price").prop("disabled", false);
             }
         }
-
     });
 }
 

@@ -19,27 +19,27 @@ namespace Events.IO.Domain.DEvents
             CompanyName = companyName;
         }
 
-        public DEvent() {}
+        public DEvent() { }
 
-		public string Name { get; protected set; }
-		public string ShortDescription { get; protected set; }
-		public string LongDescription { get; protected set; }
-		public DateTime BeginDate { get; protected set; }
-		public DateTime EndDate { get; protected set; }
-		public bool Free { get; protected set; }
-		public decimal Price { get; protected set; }
-		public bool Online { get; protected set; }
-		public string CompanyName { get; protected set; }
-		public bool Deleted { get; protected set; }
-		public ICollection<Tags> Tags { get; protected set; }
-		public Guid? CategoryId { get; protected set; }
-		public Guid? AddressId { get; protected set; }
-		public Guid? HostId { get; protected set; }
+        public string Name { get; protected set; }
+        public string ShortDescription { get; protected set; }
+        public string LongDescription { get; protected set; }
+        public DateTime BeginDate { get; protected set; }
+        public DateTime EndDate { get; protected set; }
+        public bool Free { get; protected set; }
+        public decimal Price { get; protected set; }
+        public bool Online { get; protected set; }
+        public string CompanyName { get; protected set; }
+        public bool Deleted { get; protected set; }
+        public ICollection<Tags> Tags { get; protected set; }
+        public Guid? CategoryId { get; protected set; }
+        public Guid? AddressId { get; protected set; }
+        public Guid? HostId { get; protected set; }
 
 
         //EF
         public virtual Category Category { get; private set; }
-        public virtual Address Address { get; private set; }
+        public virtual Address? Address { get; private set; }
         public virtual Host Host { get; private set; }
 
         public void AssignAddress(Address address)
@@ -51,7 +51,7 @@ namespace Events.IO.Domain.DEvents
         {
             Deleted = true;
         }
-        
+         
         public void AssignCategory(Category category)
         {
             if (!category.IsValidate()) return;
@@ -72,7 +72,8 @@ namespace Events.IO.Domain.DEvents
             DateValidation();
             LocalValidation();
             ValidationResult = Validate(this);
-            
+
+            ValidatingAddress();
         }
         private void NameValidation()
         {
@@ -90,7 +91,7 @@ namespace Events.IO.Domain.DEvents
 
             if (Free)
                 RuleFor(c => c.Price)
-                    .ExclusiveBetween(0,0).When(e=>e.Free)
+                    .ExclusiveBetween(0, 0).When(e => e.Free)
                     .WithMessage("The price must be between 0 since its free");
         }
 
@@ -124,6 +125,18 @@ namespace Events.IO.Domain.DEvents
                 .NotEmpty().WithMessage("The host name must be declared")
                 .Length(2, 150).WithMessage("The host name must be between 2 and 150 chars.");
         }
+
+        private void ValidatingAddress()
+        {
+            if (Online) return;
+            if (Address.IsValidate()) return;
+
+            foreach (var error in ValidationResult.Errors)
+            {
+                ValidationResult.Errors.Add(error);
+            }
+        }
+
         #endregion
 
         public static class EventFactory
@@ -157,13 +170,12 @@ namespace Events.IO.Domain.DEvents
                    Address = address,
                     CategoryId = categoryId
 				};
-                if(hostId.HasValue )
-                {
+                if(hostId.HasValue)
                     devent.HostId = hostId.Value;
 
                     if (online)
                         devent.Address = null;
-                }
+
                 return devent;
 
             }

@@ -30,6 +30,6 @@
            
             Address = address;
         }
-      public IncludeAddressEventCommand Address { get; set; }
+      public IncludeAddressEventCommand Address { get; private set; }
     }
 }

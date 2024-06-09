@@ -5,7 +5,6 @@ namespace Events.IO.Application.ViewModels
 {
     public class AddressViewModel
     {
-
         public AddressViewModel()
         {
             Id = Guid.NewGuid();    
@@ -15,7 +14,7 @@ namespace Events.IO.Application.ViewModels
             return new SelectList(StateViewModel.ListStates(), "Abbreviation", "Name");
         }
 
-        [Key]
+            [Key]
             public Guid Id { get; set; }
             public string PublicPlace { get;  set; }
             public string Number { get;  set; }
@@ -28,7 +27,7 @@ namespace Events.IO.Application.ViewModels
         public Guid EventId { get; set; }
         public override string ToString()
         {
-            return PublicPlace + "," + Number + "-" + Complement + "," + Neighborhood + "-" + ZipCode + "," + City + "-" + State;
+            return PublicPlace + ", " + Number + " - " + Neighborhood + ", " + City + " - " + State;
          }
     }
 }

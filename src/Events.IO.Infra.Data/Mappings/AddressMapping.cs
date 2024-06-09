@@ -56,7 +56,7 @@ namespace Events.IO.Infra.Data.Mappings
                .HasForeignKey<Address>(c => c.EventId)
                .IsRequired(false);
 
-            builder
+            builder 
                 .ToTable("Addresses");
         }
     }

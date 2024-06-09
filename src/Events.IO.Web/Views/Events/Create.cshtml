@@ -1,10 +1,10 @@
 ﻿@using Events.IO.Application.ViewModels
-@model Events.IO.Application.ViewModels.EventViewModel
+@model EventViewModel
 
 <h1>Register New Event</h1>
 
 <form asp-action="Create">
-    <div class="form-horizontal">
+    <div class="form-horizontal"> 
         <h4>Fill in all the requirements</h4>
         <hr />
 
@@ -56,9 +56,9 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                    <input asp-for="Free" />
-                    <label asp-for="Free"></label>
+                <div class="form-check">
+                    <input asp-for="Free" class="form-check-input" id="Free" />
+                    <label asp-for="Free" class="form-check-label"></label>
                 </div>
             </div>
         </div>
@@ -72,12 +72,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                    <input asp-for="Online" />
-                    <label asp-for="Online"></label>
+                <div class="form-check">
+                    <input asp-for="Online" class="form-check-input" id="Online" />
+                    <label asp-for="Online" class="form-check-label"></label>
                 </div>
             </div>
         </div>
+
 
         <div class="form-group">
             <label asp-for="CompanyName" class="control-label"></label>
@@ -85,7 +86,7 @@
             <span asp-validation-for="CompanyName" class="text-danger"></span>
         </div>
 
-        <!--div id="AddressForm">
+        <div id="AddressForm">
             <hr />
             <h3>Address of the Event</h3>
 
@@ -145,7 +146,7 @@
                 </div>
             </div>
         </div>
-        -->
+        
         
         <div class="form-group">
             <input type="submit" id="btSubmit" value="Register" class="btn btn-success" />

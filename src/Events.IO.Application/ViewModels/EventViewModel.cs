@@ -14,6 +14,10 @@ namespace Events.IO.Application.ViewModels
         [Key]
         public Guid Id { get; set; }
 
+
+        [Required(ErrorMessage = "The Name is Required")]
+        [MinLength(2, ErrorMessage = "The min lenght of the name is {1}")]
+        [MaxLength(150, ErrorMessage = "The max lenght of the name is {1}")]
         [Display(Name = "Event name.")]
         public string Name { get; set; }
 
@@ -46,7 +50,7 @@ namespace Events.IO.Application.ViewModels
 
         [Display(Name = "Company / Host Group")]
         public string CompanyName { get; set; }
-        public AddressViewModel? Address { get; set; }
+        public AddressViewModel Address { get; set; }
         public CategoryViewModel Category { get; set; }
         public Guid CategoryId { get; set; }
         public Guid HostId { get; set; }

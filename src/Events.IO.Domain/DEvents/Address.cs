@@ -66,8 +66,6 @@ namespace Events.IO.Domain.DEvents
             return ValidationResult.IsValid;
 
             #endregion
-
-
         }
     }
 }

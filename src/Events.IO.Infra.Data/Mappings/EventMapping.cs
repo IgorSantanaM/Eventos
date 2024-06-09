@@ -39,9 +39,6 @@ namespace Events.IO.Infra.Data.Mappings
             .Ignore(e => e.Tags);
 
 
-           builder
-                .Ignore(e => e.CascadeMode);
-
             builder
             .ToTable("Events");
 
