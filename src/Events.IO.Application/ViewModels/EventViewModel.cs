@@ -29,7 +29,6 @@ namespace Events.IO.Application.ViewModels
 
         [Display(Name = "Beginning of the Event")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BeginDate { get;  set; }
 
         [Display(Name = "Ending of the Event")]
