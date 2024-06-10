@@ -20,9 +20,10 @@ namespace Events.IO.Web.Controllers
             }
         }
 
-        protected bool ValidOperation()
+        protected bool ValidateOperation()          
         {
             return (!_notifications.HasNotifications());
         }
+        
     }
 }

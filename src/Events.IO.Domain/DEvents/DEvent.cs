@@ -39,7 +39,7 @@ namespace Events.IO.Domain.DEvents
 
         //EF
         public virtual Category Category { get; private set; }
-        public virtual Address? Address { get; private set; }
+        public virtual Address Address { get; private set; }
         public virtual Host Host { get; private set; }
 
         public void AssignAddress(Address address)

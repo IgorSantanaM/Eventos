@@ -60,13 +60,13 @@ namespace Events.IO.Site.Controllers
         [Authorize(Policy = "CanAddEvents")]
         public IActionResult Create(EventViewModel eventViewModel)
         {
-            if (!ModelState.IsValid) return View(eventViewModel);
+             if (!ModelState.IsValid) return View(eventViewModel);
 
                 eventViewModel.HostId = HostId;
 
                 _eventAppService.Registry(eventViewModel);
 
-                ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
+                ViewBag.PostReturn = ValidateOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
             return View(eventViewModel);
         }
         [Route("edit-event/{id:guid}")]
@@ -111,7 +111,7 @@ namespace Events.IO.Site.Controllers
             eventViewModel.HostId = HostId;
             _eventAppService.Update(eventViewModel);
 
-            ViewBag.PostReturn = ValidOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
+            ViewBag.PostReturn = ValidateOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
 
             if (_eventAppService.GetById(eventViewModel.Id).Online) {
                 eventViewModel.Address = null;
@@ -194,7 +194,7 @@ namespace Events.IO.Site.Controllers
             eventViewModel.Address.EventId = eventViewModel.Id;
             _eventAppService.AddAddress(eventViewModel.Address);
 
-            if (ValidOperation())
+            if (ValidateOperation())
             {
                 string url = Url.Action("GetAddress", "Events", new { id = eventViewModel.Id });
                 return Json(new { success = true, url = url });
@@ -211,7 +211,7 @@ namespace Events.IO.Site.Controllers
 
          _eventAppService.UpdateAddress(eventViewModel.Address);
 
-            if (ValidOperation())
+            if (ValidateOperation())
             {
                 string url = Url.Action("GetAddress", "Events", new { id = eventViewModel.Id });
                 return Json(new { success = true, url = url });

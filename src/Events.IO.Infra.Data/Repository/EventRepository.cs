@@ -52,43 +52,30 @@ namespace Events.IO.Infra.Data.Repository
         {
             var sql = @"SELECT * FROM Events E 
                         WHERE E.Deleted = 0 
-                        AND E.HostId = @hostId 
+                        AND E.HostId = @hid 
                         ORDER BY E.EndDate DESC";
            // throw new Exception("An error occurred");
 
-            return Db.Database.GetDbConnection().Query<DEvent>(sql, new { hostId });
+            return Db.Database.GetDbConnection().Query<DEvent>(sql, new {hid = hostId});
         }
 
         public override DEvent GetById(Guid id)
         {
-            var sql = @"SELECT * FROM Events E 
-                        LEFT JOIN Addresses A ON E.Id = A.EventId 
-                        WHERE E.Id = @uid";
+            var sql = @"SELECT * FROM Events E" +
+                        "LEFT JOIN Addresses AD " +
+                        "ON E.Id = AD.EventId " +
+                        "WHERE E.Id = @uid";
 
-            var eventDictionary = new Dictionary<Guid, DEvent>();
-
-            var devents = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(
-                sql,
-                (devent, address) =>
+            var devent = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(sql,
+                (e, ad) =>
                 {
-                    if (!eventDictionary.TryGetValue(devent.Id, out var eventEntry))
-                    {
-                        eventEntry = devent;
-                        eventDictionary.Add(eventEntry.Id, eventEntry);
-                    }
+                    if (ad != null)
+                        e.AssignAddress(ad);
 
-                    if (address != null)
-                    {
-                        eventEntry.AssignAddress(address);
-                    }
+                    return e;
+                }, new { uid = id });
 
-                    return eventEntry;
-                },
-                new { uid = id },
-                splitOn: "Id"
-            );
-
-            return devents.FirstOrDefault();
+            return devent.FirstOrDefault();
         }
         public override void Remove(Guid id)
         {

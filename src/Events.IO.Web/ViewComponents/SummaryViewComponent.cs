@@ -16,7 +16,7 @@ namespace Events.IO.Web.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var notifications = await Task.FromResult(_notifications.GetNotifications());
-            notifications.ToList().ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
+            notifications.ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
 
             return View();
         }
