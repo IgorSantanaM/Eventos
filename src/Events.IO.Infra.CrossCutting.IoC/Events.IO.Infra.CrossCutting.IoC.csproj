@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.0-preview.4.24266.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Events.IO.Application\Events.IO.Application.csproj" />
+    <ProjectReference Include="..\Events.IO.Domain\Events.IO.Domain.csproj" />
+    <ProjectReference Include="..\Events.IO.Infra.CrossCutting.AspNetFilters\Events.IO.Infra.CrossCutting.AspNetFilters.csproj" />
+    <ProjectReference Include="..\Events.IO.Infra.CrossCutting.Bus\Events.IO.Infra.CrossCutting.Bus.csproj" />
+    <ProjectReference Include="..\Events.IO.Infra.CrossCutting.Identity\Events.IO.Infra.CrossCutting.Identity.csproj" />
+    <ProjectReference Include="..\Events.IO.Infra.Data\Events.IO.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

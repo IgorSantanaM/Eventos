@@ -1,0 +1,83 @@
+﻿ @model Events.IO.Application.ViewModels.EventViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Address of Event</strong>
+    </div>
+    @if(Model.Address != null)
+    {
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.PublicPlace)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.Number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.Complement)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.Neighborhood)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.ZipCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address.PublicPlace)
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Address.PublicPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address.Complement)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address.Neighborhood)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address.ZipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address.PublicPlace)
+                </td>
+                <td>
+                    <div>
+                        <a asp-action="UpdateAddress" asp-route-id="@Model.Id" data-modal="" class=btn btn-warning">
+                            <span title="Edit" class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <table class="table table-hover">
+            <a asp-action="IncludeAddress" asp-route-id="@Model.Id" data-modal="" class=btn btn-info">
+                <span title="Include Address" class="glyphicon glyphicon-plus-sign"></span>
+            </a>
+        </table>
+    }
+</div>
+<script>
+    AjaxModal();
+</script>

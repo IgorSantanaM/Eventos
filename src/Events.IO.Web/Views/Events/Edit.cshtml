@@ -1,0 +1,129 @@
+﻿@model Events.IO.Application.ViewModels.EventViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>EventViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <hr />
+            <vc:summary></vc:summary>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="HostId" />
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LongDescription" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
+                    <span asp-validation-for="LongDescription" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    @Html.Partial("_Categories")
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeginDate" class="control-label"></label>
+                <input asp-for="BeginDate" class="form-control" />
+                <span asp-validation-for="BeginDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label"></label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input  type="submit" id="btSubmit" value="Update Event" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-info">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="AddressForm">
+    <div id="AddressTarget">
+        @Html.Partial("_DetailsAddress")
+    </div>
+</div>
+    
+<div id="myModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        EventValidations();
+        AjaxModal();
+    </script>
+
+    @{
+        if (ViewBag.PostReturn != null)
+        {
+            var notification = ViewBag.PostReturn.ToString().Split(',');
+            <script>
+                toastr["@notification[0]"]("@notification[1]");
+            </script>
+            if(notification[0] == "success")
+            {
+                <script>
+                    toastr.options.onHidden = function () {
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    toastr.options.onClick = function () {
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    toastr.options.onCloseClick = function () {
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    $('#btSubmit').prop("disabled", true);
+                </script>
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+﻿@using Events.IO.Application.ViewModels
+@model Events.IO.Application.ViewModels.EventViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+<div class="jumbotron">
+    <h2>@ViewData["Title"]</h2>
+    <h4>@Model.ShortDescription</h4>
+</div>
+
+<div class="container"
+    <div>
+        <div class="row">
+            @Html.DisplayFor(modelItem => Model.LongDescription)
+        </div>
+        <hr />
+        <br />
+        <div class="row">
+            <b>When:</b>
+            @Model.BeginDate.ToString("d") until @Model.EndDate.ToString("d")
+        </div>
+        <br />
+         <div class="row">
+            <b>Price:</b>
+            @{
+                if (Model.Free)
+                {
+                    @Html.DisplayName("Free")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => Model.Price)
+                }
+            }
+        </div>
+        <br />
+        <div class="row">
+            <b>Kind of Event:</b>
+            @{
+                var category = new CategoryViewModel().ListCategories().FirstOrDefault(c => c.Id == Model.CategoryId);
+                @Html.Raw(category.Name);
+            }
+            
+        </div>
+        <br />
+        <div class="row">
+            <b>Hosted by:</b>
+                @Html.DisplayFor(modelitem => Model.CompanyName);
+        </div>
+        <br />
+        <div class="row">
+            <b>Where?</b>
+            @{
+                if (Model.Online)
+                {
+                    @Html.DisplayName("Online Event")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => Model.Address)
+                }
+            }
+        </div>
+        <br />
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
