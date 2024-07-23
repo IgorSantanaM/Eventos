@@ -2,9 +2,13 @@
 using FluentValidation;
 using Events.IO.Domain.Hosts;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using FluentValidation.Results;
 =======
 >>>>>>> TesteApi
+=======
+using FluentValidation.Results;
+>>>>>>> master
 
 namespace Events.IO.Domain.DEvents
 {
@@ -22,6 +26,7 @@ namespace Events.IO.Domain.DEvents
             CompanyName = companyName;
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         public DEvent() { }
 
@@ -57,6 +62,24 @@ namespace Events.IO.Domain.DEvents
 		public Guid? AddressId { get; protected set; }
 		public Guid? HostId { get; protected set; }
 >>>>>>> TesteApi
+=======
+        public DEvent() { }
+
+        public string Name { get; protected set; }
+        public string ShortDescription { get; protected set; }
+        public string LongDescription { get; protected set; }
+        public DateTime BeginDate { get; protected set; }
+        public DateTime EndDate { get; protected set; }
+        public bool Free { get; protected set; }
+        public decimal Price { get; protected set; }
+        public bool Online { get; protected set; }
+        public string CompanyName { get; protected set; }
+        public bool Deleted { get; protected set; }
+        public ICollection<Tags> Tags { get; protected set; }
+        public Guid? CategoryId { get; protected set; }
+        public Guid? AddressId { get; protected set; }
+        public Guid? HostId { get; protected set; }
+>>>>>>> master
 
 
         //EF
@@ -65,9 +88,12 @@ namespace Events.IO.Domain.DEvents
         public virtual Host Host { get; private set; }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> TesteApi
+=======
+>>>>>>> master
         public void AssignAddress(Address address)
         {
             if (!address.IsValidate()) return;
@@ -78,10 +104,14 @@ namespace Events.IO.Domain.DEvents
             Deleted = true;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
          
 =======
         
 >>>>>>> TesteApi
+=======
+         
+>>>>>>> master
         public void AssignCategory(Category category)
         {
             if (!category.IsValidate()) return;
@@ -90,14 +120,19 @@ namespace Events.IO.Domain.DEvents
         public override bool IsValidate()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             ValidatingTheEvent();
 =======
 			Authenticate();
 >>>>>>> TesteApi
+=======
+            ValidatingTheEvent();
+>>>>>>> master
             return ValidationResult.IsValid;
         }
         #region Validations
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         private void ValidatingTheEvent()
         {
@@ -111,17 +146,24 @@ namespace Events.IO.Domain.DEvents
             ValidatingAddress();
 =======
         private void Authenticate()
+=======
+        private void ValidatingTheEvent()
+>>>>>>> master
         {
             NameValidation();
+            PriceValidation();
             CompanyNameValidation();
             DateValidation();
             LocalValidation();
-            PriceValidation();
             ValidationResult = Validate(this);
 
+<<<<<<< HEAD
             //Validacoes adicionais
             AddressValidate();
 >>>>>>> TesteApi
+=======
+            ValidatingAddress();
+>>>>>>> master
         }
         private void NameValidation()
         {
@@ -132,6 +174,9 @@ namespace Events.IO.Domain.DEvents
         private void PriceValidation()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
             if (!Free)
                 RuleFor(c => c.Price)
                     .ExclusiveBetween(1, 50000)
@@ -142,6 +187,7 @@ namespace Events.IO.Domain.DEvents
                 RuleFor(c => c.Price)
                     .ExclusiveBetween(0, 0).When(e => e.Free)
                     .WithMessage("The price must be between 0 since its free");
+<<<<<<< HEAD
         }
 
 
@@ -157,23 +203,31 @@ namespace Events.IO.Domain.DEvents
             RuleFor(c => c.Price)
                 .Must((c, price) => !c.Free || (price >= 0 && price <= 50000))
                 .WithMessage("The event price must be between 0 and 50000 if not free.");
+=======
+>>>>>>> master
         }
+
 
         private void DateValidation()
         {
             RuleFor(c => c.BeginDate)
-                .LessThan(c => c.EndDate)
-                .WithMessage("The event cannot begin after its end");
+                .GreaterThan(c => c.EndDate)
+                .WithMessage("The begin date must be later than the end date.");
 
             RuleFor(c => c.BeginDate)
+<<<<<<< HEAD
                 .GreaterThan(DateTime.Now)
 >>>>>>> TesteApi
+=======
+                .LessThan(DateTime.Now)
+>>>>>>> master
                 .WithMessage("The event cannot begin before the current date");
         }
         private void LocalValidation()
         {
             if (Online)
                 RuleFor(c => c.Address)
+<<<<<<< HEAD
 <<<<<<< HEAD
                     .Null().When(c => c.Online == true)
                     .WithMessage("The event don't need an address since it's online.");
@@ -184,14 +238,23 @@ namespace Events.IO.Domain.DEvents
 
 
 >>>>>>> TesteApi
+=======
+                    .Null().When(c => c.Online == true)
+                    .WithMessage("The event don't need an address since it's online.");
+
+>>>>>>> master
             if (!Online)
                 RuleFor(c => c.Address)
                     .NotNull().When(c => c.Online == false)
                     .WithMessage("The event address must be declared.");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> TesteApi
+=======
+
+>>>>>>> master
         }
         private void CompanyNameValidation()
         {
@@ -201,28 +264,40 @@ namespace Events.IO.Domain.DEvents
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         private void ValidatingAddress()
 =======
 
         private void AddressValidate()
 >>>>>>> TesteApi
+=======
+        private void ValidatingAddress()
+>>>>>>> master
         {
             if (Online) return;
             if (Address.IsValidate()) return;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             foreach (var error in ValidationResult.Errors)
 =======
             foreach(var error in Address.ValidationResult.Errors)
 >>>>>>> TesteApi
+=======
+            foreach (var error in ValidationResult.Errors)
+>>>>>>> master
             {
                 ValidationResult.Errors.Add(error);
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> TesteApi
+=======
+
+>>>>>>> master
         #endregion
 
         public static class EventFactory
@@ -254,6 +329,7 @@ namespace Events.IO.Domain.DEvents
                     Online = online,
                     CompanyName = companyName,
 <<<<<<< HEAD
+<<<<<<< HEAD
                    Address = address,
                     CategoryId = categoryId
 				};
@@ -265,15 +341,25 @@ namespace Events.IO.Domain.DEvents
                 if(hostId.HasValue )
                 {
 >>>>>>> TesteApi
+=======
+                   Address = address,
+                    CategoryId = categoryId
+				};
+                if(hostId.HasValue)
+>>>>>>> master
                     devent.HostId = hostId.Value;
 
                     if (online)
                         devent.Address = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
                 }
 >>>>>>> TesteApi
+=======
+
+>>>>>>> master
                 return devent;
 
             }

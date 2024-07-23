@@ -57,10 +57,14 @@ namespace Events.IO.Infra.Data.Mappings
                .IsRequired(false);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             builder 
 =======
             builder
 >>>>>>> TesteApi
+=======
+            builder 
+>>>>>>> master
                 .ToTable("Addresses");
         }
     }

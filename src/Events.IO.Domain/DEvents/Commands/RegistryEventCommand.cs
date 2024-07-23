@@ -28,6 +28,7 @@
             HostId = hostId;
             CategoryId = categoryId;
 <<<<<<< HEAD
+<<<<<<< HEAD
            
             Address = address;
         }
@@ -37,5 +38,11 @@
         }
         public IncludeAddressEventCommand Address { get; set; }
 >>>>>>> TesteApi
+=======
+           
+            Address = address;
+        }
+      public IncludeAddressEventCommand Address { get; private set; }
+>>>>>>> master
     }
 }

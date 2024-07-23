@@ -1,10 +1,14 @@
 ﻿function EventValidations() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
     // Custom validator methods
     $.validator.methods.range = function (value, element, param) {
         var globalizedValue = value.replace(",", ".");
         return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
     }
+<<<<<<< HEAD
 
     $.validator.methods.number = function (value, element) {
         return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
@@ -21,6 +25,14 @@
         return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
     };
 >>>>>>> TesteApi
+=======
+
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+
+    // Toastr configuration
+>>>>>>> master
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -39,6 +51,7 @@
         "hideMethod": "fadeOut"
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     // Datepicker configuration
     $('#BeginDate, #EndDate').datepicker({
@@ -46,16 +59,24 @@
         startDate: new Date(),
 =======
     
+=======
+>>>>>>> master
 
-    $('#BeginDate').datepicker({
+    // Datepicker configuration
+    $('#BeginDate, #EndDate').datepicker({
         format: "mm/dd/yyyy",
+<<<<<<< HEAD
         startDate: "tomorrow",
 >>>>>>> TesteApi
+=======
+        startDate: new Date(),
+>>>>>>> master
         language: "en-US",
         orientation: "bottom right",
         autoclose: true
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // Toggle visibility of address and price fields based on online and free checkboxes
     $(document)(function () {
@@ -85,27 +106,35 @@
     });
 
     $(document).ready(function () {
+=======
+    // Toggle visibility of address and price fields based on online and free checkboxes
+    $(document)(function () {
+>>>>>>> master
         var $inputOnline = $("#Online");
         var $inputFree = $("#Free");
 
-        ShowAddress();
         ShowPrice();
+        ShowAddress();
 
         $inputOnline.click(function () {
             ShowAddress();
-        });
-
+        })
         $inputFree.click(function () {
             ShowPrice();
-        });
+        })
 
         function ShowAddress() {
+<<<<<<< HEAD
             if ($inputOnline.is(":checked")) {
                 $("#AddressForm").hide();
             } else {
                 $("#AddressForm").show();
             }
 >>>>>>> TesteApi
+=======
+            if ($inputOnline.is(":checked")) $("#AddressForm").hide();
+            else $("#AddressForm").show();
+>>>>>>> master
         }
 
         function ShowPrice() {
@@ -122,6 +151,7 @@
 
 function AjaxModal() {
     $(document).ready(function () {
+<<<<<<< HEAD
 <<<<<<< HEAD
         $(function () {
             $.ajaxSetup({ cache: false });
@@ -163,42 +193,48 @@ function AjaxModal() {
 }
 =======
         $.ajaxSetup({ cache: false });
+=======
+        $(function () {
+            $.ajaxSetup({ cache: false });
+>>>>>>> master
 
-        $("a[data-modal]").on("click", function (e) {
-            e.preventDefault();
-            var href = this.href;
-
-            $("#myModalContent").load(href, function () {
-                $('#myModal').modal({
-                    keyboard: true
-                }).modal('show');
-                bindForm(this);
-            });
-
-            return false;
+            $("a[data-modal]").on("click",
+                function (e) {
+                    $('#myModalContent').load(this.href,
+                        function () {
+                            $('#myModal').modal({
+                                keyboard: true
+                            },
+                                'show');
+                            bindForm(this);
+                        });
+                    return false;
+                });
         });
-    });
 
-    function bindForm(dialog) {
-        $('form', dialog).submit(function () {
-            $.ajax({
-                url: this.action,
-                type: this.method,
-                data: $(this).serialize(),
-                success: function (result) {
-                    if (result.success) {
-                        $('#myModal').modal('hide');
-                        $('#replacetarget').load(result.url);
-                    } else {
-                        $('#myModalContent').html(result);
-                        bindForm(dialog);
+        function bindForm(diaolog) {
+            $('form', dialog).submit(function (){
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            $('#myModal').modal('hide');
+                            $('#AddressTarget').load(result.url);
+                        } else {
+                            $('#myModalContent').html(result);
+                            bindForm(dialog);
+                        }
                     }
-                }
-            });
-
-            return false;
-        });
-    }
+                });
+                return false;
+            })
+        }
+    })
 }
+<<<<<<< HEAD
 
 >>>>>>> TesteApi
+=======
+>>>>>>> master

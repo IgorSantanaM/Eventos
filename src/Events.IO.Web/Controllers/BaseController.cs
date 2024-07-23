@@ -21,6 +21,7 @@ namespace Events.IO.Web.Controllers
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         protected bool ValidateOperation()          
         {
             return (!_notifications.HasNotifications());
@@ -32,5 +33,12 @@ namespace Events.IO.Web.Controllers
             return (!_notifications.HasNotifications());
         }
 >>>>>>> TesteApi
+=======
+        protected bool ValidateOperation()          
+        {
+            return (!_notifications.HasNotifications());
+        }
+        
+>>>>>>> master
     }
 }

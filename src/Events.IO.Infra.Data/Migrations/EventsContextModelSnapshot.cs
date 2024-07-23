@@ -118,11 +118,17 @@ namespace Events.IO.Infra.Data.Migrations
                         .HasColumnType("datetime2");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     b.Property<int>("CascadeMode")
                         .HasColumnType("int");
 
 =======
 >>>>>>> TesteApi
+=======
+                    b.Property<int>("CascadeMode")
+                        .HasColumnType("int");
+
+>>>>>>> master
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
@@ -237,11 +243,15 @@ namespace Events.IO.Infra.Data.Migrations
             modelBuilder.Entity("Events.IO.Domain.DEvents.DEvent", b =>
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     b.Navigation("Address");
 =======
                     b.Navigation("Address")
                         .IsRequired();
 >>>>>>> TesteApi
+=======
+                    b.Navigation("Address");
+>>>>>>> master
                 });
 
             modelBuilder.Entity("Events.IO.Domain.Hosts.Host", b =>

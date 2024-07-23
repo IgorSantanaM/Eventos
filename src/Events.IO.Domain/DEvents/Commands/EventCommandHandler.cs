@@ -26,12 +26,17 @@ namespace Events.IO.Domain.DEvents.Commands
         }
         public void Handle(RegistryEventCommand message)
 <<<<<<< HEAD
+<<<<<<< HEAD
         {
              var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
 =======
         { 
             var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
 >>>>>>> TesteApi
+=======
+        {
+             var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
+>>>>>>> master
         
             var devent = DEvent.EventFactory.NewCompletedEvent(
                 message.Id,
@@ -75,10 +80,14 @@ namespace Events.IO.Domain.DEvents.Commands
             {
                 _bus.RaiseEvent(new DomainNotification(message.MessageType, "You cannot update an event without the address."));
 <<<<<<< HEAD
+<<<<<<< HEAD
                 return; 
 =======
                 return;
 >>>>>>> TesteApi
+=======
+                return; 
+>>>>>>> master
             }
             if (!ValidEvent(devent)) return;
 
@@ -109,6 +118,7 @@ namespace Events.IO.Domain.DEvents.Commands
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         private bool ValidEvent(DEvent devent)
         {
             if (devent.IsValidate()) return true;
@@ -116,11 +126,18 @@ namespace Events.IO.Domain.DEvents.Commands
             NotifyErrorValidations(devent.ValidationResult);
 =======
         private bool ValidEvent(DEvent evento)
+=======
+        private bool ValidEvent(DEvent devent)
+>>>>>>> master
         {
-            if (evento.IsValidate()) return true;
+            if (devent.IsValidate()) return true;
 
+<<<<<<< HEAD
             NotifyErrorValidations(evento.ValidationResult);
 >>>>>>> TesteApi
+=======
+            NotifyErrorValidations(devent.ValidationResult);
+>>>>>>> master
 
             return false;
         }

@@ -53,6 +53,7 @@ namespace Events.IO.Infra.Data.Repository
             var sql = @"SELECT * FROM Events E 
                         WHERE E.Deleted = 0 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         AND E.HostId = @hid 
                         ORDER BY E.EndDate DESC";
            // throw new Exception("An error occurred");
@@ -65,15 +66,26 @@ namespace Events.IO.Infra.Data.Repository
 
             return Db.Database.GetDbConnection().Query<DEvent>(sql, new { hostId });
 >>>>>>> TesteApi
+=======
+                        AND E.HostId = @hid 
+                        ORDER BY E.EndDate DESC";
+           // throw new Exception("An error occurred");
+
+            return Db.Database.GetDbConnection().Query<DEvent>(sql, new {hid = hostId});
+>>>>>>> master
         }
 
         public override DEvent GetById(Guid id)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
             var sql = @"SELECT * FROM Events E" +
                         "LEFT JOIN Addresses AD " +
                         "ON E.Id = AD.EventId " +
                         "WHERE E.Id = @uid";
+<<<<<<< HEAD
 
             var devent = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(sql,
                 (e, ad) =>
@@ -89,24 +101,19 @@ namespace Events.IO.Infra.Data.Repository
             var sql = @"SELECT * FROM Events E 
                         LEFT JOIN Addresses A ON E.Id = A.EventId 
                         WHERE E.Id = @uid";
+=======
+>>>>>>> master
 
-            var eventDictionary = new Dictionary<Guid, DEvent>();
-
-            var devents = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(
-                sql,
-                (devent, address) =>
+            var devent = Db.Database.GetDbConnection().Query<DEvent, Address, DEvent>(sql,
+                (e, ad) =>
                 {
-                    if (!eventDictionary.TryGetValue(devent.Id, out var eventEntry))
-                    {
-                        eventEntry = devent;
-                        eventDictionary.Add(eventEntry.Id, eventEntry);
-                    }
+                    if (ad != null)
+                        e.AssignAddress(ad);
 
-                    if (address != null)
-                    {
-                        eventEntry.AssignAddress(address);
-                    }
+                    return e;
+                }, new { uid = id });
 
+<<<<<<< HEAD
                     return eventEntry;
                 },
                 new { uid = id },
@@ -115,6 +122,9 @@ namespace Events.IO.Infra.Data.Repository
 
             return devents.FirstOrDefault();
 >>>>>>> TesteApi
+=======
+            return devent.FirstOrDefault();
+>>>>>>> master
         }
         public override void Remove(Guid id)
         {

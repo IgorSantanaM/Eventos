@@ -59,6 +59,7 @@ namespace Events.IO.Site.Controllers
         [Route("new-event")]
         [Authorize(Policy = "CanAddEvents")]
 <<<<<<< HEAD
+<<<<<<< HEAD
         public IActionResult Create(EventViewModel eventViewModel)
         {
              if (!ModelState.IsValid) return View(eventViewModel);
@@ -70,16 +71,21 @@ namespace Events.IO.Site.Controllers
                 ViewBag.PostReturn = ValidateOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
 =======
 
+=======
+>>>>>>> master
         public IActionResult Create(EventViewModel eventViewModel)
         {
-            if (!ModelState.IsValid) return View(eventViewModel);
+             if (!ModelState.IsValid) return View(eventViewModel);
 
-            eventViewModel.HostId = HostId;
-            _eventAppService.Registry(eventViewModel);
+                eventViewModel.HostId = HostId;
 
-            ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
+                _eventAppService.Registry(eventViewModel);
 
+<<<<<<< HEAD
 >>>>>>> TesteApi
+=======
+                ViewBag.PostReturn = ValidateOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
+>>>>>>> master
             return View(eventViewModel);
         }
         [Route("edit-event/{id:guid}")]
@@ -114,10 +120,13 @@ namespace Events.IO.Site.Controllers
         [Route("edit-event/{id:guid}")]
         [Authorize(Policy = "CanAddEvents")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 >>>>>>> TesteApi
+=======
+>>>>>>> master
         public IActionResult Edit(EventViewModel eventViewModel)
         {
             if (ValidateAuthorEvent(eventViewModel))
@@ -130,10 +139,14 @@ namespace Events.IO.Site.Controllers
             _eventAppService.Update(eventViewModel);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             ViewBag.PostReturn = ValidateOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
 =======
             ViewBag.PostReturn = ValidOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
 >>>>>>> TesteApi
+=======
+            ViewBag.PostReturn = ValidateOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
+>>>>>>> master
 
             if (_eventAppService.GetById(eventViewModel.Id).Online) {
                 eventViewModel.Address = null;
@@ -149,9 +162,12 @@ namespace Events.IO.Site.Controllers
         [Authorize(Policy = "CanAddEvents")]
         [Route("delete-event/{id:guid}")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> TesteApi
+=======
+>>>>>>> master
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -216,6 +232,7 @@ namespace Events.IO.Site.Controllers
         {
             ModelState.Clear();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
             eventViewModel.Address.EventId = eventViewModel.Id;
@@ -228,6 +245,14 @@ namespace Events.IO.Site.Controllers
 
             if (ValidOperation())
 >>>>>>> TesteApi
+=======
+
+
+            eventViewModel.Address.EventId = eventViewModel.Id;
+            _eventAppService.AddAddress(eventViewModel.Address);
+
+            if (ValidateOperation())
+>>>>>>> master
             {
                 string url = Url.Action("GetAddress", "Events", new { id = eventViewModel.Id });
                 return Json(new { success = true, url = url });
@@ -242,6 +267,7 @@ namespace Events.IO.Site.Controllers
         {
             ModelState.Clear();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
          _eventAppService.UpdateAddress(eventViewModel.Address);
 
@@ -251,6 +277,12 @@ namespace Events.IO.Site.Controllers
 
             if (ValidOperation())
 >>>>>>> TesteApi
+=======
+
+         _eventAppService.UpdateAddress(eventViewModel.Address);
+
+            if (ValidateOperation())
+>>>>>>> master
             {
                 string url = Url.Action("GetAddress", "Events", new { id = eventViewModel.Id });
                 return Json(new { success = true, url = url });

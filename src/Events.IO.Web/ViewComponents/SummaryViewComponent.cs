@@ -9,9 +9,12 @@ namespace Events.IO.Web.ViewComponents
     {
         private readonly IDomainNotificationHandler<DomainNotification> _notifications;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> TesteApi
+=======
+>>>>>>> master
         public SummaryViewComponent(IDomainNotificationHandler<DomainNotification> notifications)
         {
             _notifications = notifications;
@@ -21,10 +24,14 @@ namespace Events.IO.Web.ViewComponents
         {
             var notifications = await Task.FromResult(_notifications.GetNotifications());
 <<<<<<< HEAD
+<<<<<<< HEAD
             notifications.ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
 =======
             notifications.ToList().ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
 >>>>>>> TesteApi
+=======
+            notifications.ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
+>>>>>>> master
 
             return View();
         }

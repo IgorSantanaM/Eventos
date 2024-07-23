@@ -45,9 +45,12 @@ builder.Services.AddMvc(options =>
 {
     options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalExceptionHandlingFilter)));
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalActionLogger)));
 >>>>>>> TesteApi
+=======
+>>>>>>> master
 });
 
 var app = builder.Build();

@@ -6,9 +6,12 @@ namespace Events.IO.Application.ViewModels
     public class AddressViewModel
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> TesteApi
+=======
+>>>>>>> master
         public AddressViewModel()
         {
             Id = Guid.NewGuid();    
@@ -19,10 +22,14 @@ namespace Events.IO.Application.ViewModels
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             [Key]
 =======
         [Key]
 >>>>>>> TesteApi
+=======
+            [Key]
+>>>>>>> master
             public Guid Id { get; set; }
             public string PublicPlace { get;  set; }
             public string Number { get;  set; }
@@ -36,10 +43,14 @@ namespace Events.IO.Application.ViewModels
         public override string ToString()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return PublicPlace + ", " + Number + " - " + Neighborhood + ", " + City + " - " + State;
 =======
             return PublicPlace + "," + Number + "-" + Complement + "," + Neighborhood + "-" + ZipCode + "," + City + "-" + State;
 >>>>>>> TesteApi
+=======
+            return PublicPlace + ", " + Number + " - " + Neighborhood + ", " + City + " - " + State;
+>>>>>>> master
          }
     }
 }

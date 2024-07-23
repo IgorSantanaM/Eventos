@@ -40,11 +40,14 @@ namespace Events.IO.Infra.Data.Mappings
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
            builder
                 .Ignore(e => e.CascadeMode);
 
 >>>>>>> TesteApi
+=======
+>>>>>>> master
             builder
             .ToTable("Events");
 

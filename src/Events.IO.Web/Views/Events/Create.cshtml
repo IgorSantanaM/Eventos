@@ -5,6 +5,7 @@
 
 <form asp-action="Create">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="form-horizontal"> 
         <h4>Fill in all the requirements</h4>
         <hr />
@@ -17,6 +18,13 @@
 
         <vc:summary></vc:summary>
 >>>>>>> TesteApi
+=======
+    <div class="form-horizontal"> 
+        <h4>Fill in all the requirements</h4>
+        <hr />
+
+        <vc:summary />
+>>>>>>> master
 
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
@@ -38,10 +46,14 @@
             <label asp-for="LongDescription" class="col-md-2 control-label"></label>
             <div class="col-md-10">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
 =======
                <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
 >>>>>>> TesteApi
+=======
+                <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
+>>>>>>> master
                 <span asp-validation-for="LongDescription" class="text-danger"></span>
             </div>
         </div>
@@ -67,6 +79,9 @@
         </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="form-check">
@@ -74,6 +89,7 @@
                     <label asp-for="Free" class="form-check-label"></label>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
 
         <div class="form-group">
@@ -98,21 +114,31 @@
             <label class="form-check-label">
                 <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
             </label>
+=======
+>>>>>>> master
         </div>
 
         <div class="form-group">
-            <label asp-for="Price" class="control-label"></label>
-            <input asp-for="Price" class="form-control" />
+            <label asp-for="Price" class="col-md-2 control-label"></label>
+            <div class="col-md-10"></div>
+            <input data-val-number="the price is in the wrong format" asp-for="Price"/>
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
 
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
-            </label>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="form-check">
+                    <input asp-for="Online" class="form-check-input" id="Online" />
+                    <label asp-for="Online" class="form-check-label"></label>
+                </div>
+            </div>
         </div>
 
+<<<<<<< HEAD
 >>>>>>> TesteApi
+=======
+
+>>>>>>> master
         <div class="form-group">
             <label asp-for="CompanyName" class="control-label"></label>
             <input asp-for="CompanyName" class="form-control" />
@@ -180,11 +206,16 @@
             </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         
 =======
 
 >>>>>>> TesteApi
+=======
+        
+        
+>>>>>>> master
         <div class="form-group">
             <input type="submit" id="btSubmit" value="Register" class="btn btn-success" />
             <a asp-action="Index" class="btn btn-info">Back to List</a>
@@ -200,9 +231,13 @@
     <script>
         EventValidations();
 <<<<<<< HEAD
+<<<<<<< HEAD
         AjaxModal();
 =======
 >>>>>>> TesteApi
+=======
+        AjaxModal();
+>>>>>>> master
     </script>
 
     @{
@@ -217,6 +252,7 @@
                 <script>
                     toastr.options.onHidden = function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         window.location = "http://localhost:5252/my-events";
                     }
                     toastr.options.onClick = function () {
@@ -226,13 +262,20 @@
                         window.location = "http://localhost:5252/my-events";
 =======
                         window.locations = "http://localhost:/events/myevents"
+=======
+                        window.location = "http://localhost:5252/my-events";
+>>>>>>> master
                     }
                     toastr.options.onClick = function () {
-                        window.locations = "http://localhost:/events/myevents"
+                        window.location = "http://localhost:5252/my-events";
                     }
                     toastr.options.onCloseClick = function () {
+<<<<<<< HEAD
                         window.locations = "http://localhost:/events/myevents"
 >>>>>>> TesteApi
+=======
+                        window.location = "http://localhost:5252/my-events";
+>>>>>>> master
                     }
                     $('#btSubmit').prop("disabled", true);
                 </script>

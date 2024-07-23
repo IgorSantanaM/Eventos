@@ -10,6 +10,7 @@ namespace Events.IO.Application.AutoMapper
         public ViewModelToDomainMappingProfile() 
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             CreateMap<EventViewModel, RegistryEventCommand>()
                 .ConstructUsing(c => new RegistryEventCommand(c.Name, c.ShortDescription, c.LongDescription, c.BeginDate, c.EndDate, c.Free, c.Price, c.Online, c.CompanyName, c.HostId, c.CategoryId,
                new IncludeAddressEventCommand(c.Address.Id, c.Address.PublicPlace, c.Address.Number, c.Address.Complement, c.Address.Neighborhood, c.Address.ZipCode, c.Address.City, c.Address.State, c.Id)));
@@ -21,15 +22,23 @@ namespace Events.IO.Application.AutoMapper
             .ConstructUsing(c => new UpdateAddressEventCommand(Guid.NewGuid(), c.PublicPlace, c.Number, c.Complement, c.Neighborhood, c.ZipCode, c.City, c.State, c.EventId));
 =======
             CreateMap<EventViewModel, RegistryEventCommand>()   
+=======
+            CreateMap<EventViewModel, RegistryEventCommand>()
+>>>>>>> master
                 .ConstructUsing(c => new RegistryEventCommand(c.Name, c.ShortDescription, c.LongDescription, c.BeginDate, c.EndDate, c.Free, c.Price, c.Online, c.CompanyName, c.HostId, c.CategoryId,
-                new IncludeAddressEventCommand(c.Address.Id, c.Address.PublicPlace, c.Address.Number, c.Address.Complement, c.Address.Neighborhood, c.Address.ZipCode, c.Address.City, c.Address.State, c.Id)));
+               new IncludeAddressEventCommand(c.Address.Id, c.Address.PublicPlace, c.Address.Number, c.Address.Complement, c.Address.Neighborhood, c.Address.ZipCode, c.Address.City, c.Address.State, c.Id)));
 
-            CreateMap<AddressViewModel, IncludeAddressEventCommand>()
-                .ConstructUsing(c => new IncludeAddressEventCommand(Guid.NewGuid(), c.PublicPlace, c.Number, c.Complement, c.Neighborhood, c.ZipCode, c.City, c.State, c.EventId));
+           CreateMap<AddressViewModel, IncludeAddressEventCommand>()
+             .ConstructUsing(c => new IncludeAddressEventCommand(Guid.NewGuid(), c.PublicPlace, c.Number, c.Complement, c.Neighborhood, c.ZipCode, c.City, c.State, c.EventId));
 
+<<<<<<< HEAD
             CreateMap<AddressViewModel, UpdateAddressEventCommand>()
                .ConstructUsing(c => new UpdateAddressEventCommand(Guid.NewGuid(), c.PublicPlace, c.Number, c.Complement, c.Neighborhood, c.ZipCode, c.City, c.State, c.EventId));
 >>>>>>> TesteApi
+=======
+          CreateMap<AddressViewModel, UpdateAddressEventCommand>()
+            .ConstructUsing(c => new UpdateAddressEventCommand(Guid.NewGuid(), c.PublicPlace, c.Number, c.Complement, c.Neighborhood, c.ZipCode, c.City, c.State, c.EventId));
+>>>>>>> master
 
             CreateMap<EventViewModel, UpdateEventCommand>()
                .ConstructUsing(c => new UpdateEventCommand(c.Id, c.Name, c.ShortDescription, c.LongDescription, c.BeginDate, c.EndDate, c.Free, c.Price, c.Online, c.CompanyName, c.HostId, c.CategoryId));

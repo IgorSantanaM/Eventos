@@ -18,6 +18,7 @@ namespace Events.IO.Infra.CrossCutting.Bus
         public void SendCommand<T>(T theCommand) where T : Command
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             Publish(theCommand); 
         }   
         private static void Publish<T>(T message) where T : Message
@@ -30,6 +31,13 @@ namespace Events.IO.Infra.CrossCutting.Bus
         {
             if (Container is null) return;
 >>>>>>> TesteApi
+=======
+            Publish(theCommand); 
+        }   
+        private static void Publish<T>(T message) where T : Message
+        {
+            if (Container == null) return;
+>>>>>>> master
 
             var obj = Container.GetService(message.MessageType.Equals("DomainNotification")
                 ? typeof(IDomainNotificationHandler<T>)
