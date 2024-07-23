@@ -35,6 +35,7 @@ namespace Events.IO.Domain.DEvents
         protected Address() { }
         public override bool IsValidate()
         {
+<<<<<<< HEAD
                 #region ValidationsAddress
 
                 RuleFor(c => c.PublicPlace)
@@ -60,12 +61,43 @@ namespace Events.IO.Domain.DEvents
             RuleFor(c => c.Number)
                 .NotEmpty().WithMessage("The number must be provided")
                 .Length(1, 10).WithMessage("The number must be between 1 and 10 characters");
+=======
+            #region ValidacoesEnd
+
+            RuleFor(c => c.PublicPlace)
+                .NotEmpty().WithMessage("O longradouro precisa ser fornecido")
+                .Length(2, 150).WithMessage("O longradouro precisa ter entre 2 e 150 caracteres");
+
+            RuleFor(c => c.Neighborhood)
+                .NotEmpty().WithMessage("O bairro precisa ser fornecido")
+                .Length(2, 150).WithMessage("O bairro precisa ter entre 2 e 150 caracteres");
+
+            RuleFor(c => c.ZipCode)
+                .NotEmpty().WithMessage("O cep precisa ser fornecido")
+                .Length(8).WithMessage("O cep precisa ter entre 8 caracteres");
+
+            RuleFor(c => c.City)
+                .NotEmpty().WithMessage("O cidade precisa ser fornecido")
+                .Length(2, 150).WithMessage("O cidade precisa ter entre 2 e 150 caracteres");
+
+            RuleFor(c => c.State)
+                .NotEmpty().WithMessage("O estado precisa ser fornecido")
+                .Length(2, 150).WithMessage("O estado precisa ter entre 2 e 150 caracteres");
+
+            RuleFor(c => c.Number)
+                .NotEmpty().WithMessage("O numero precisa ser fornecido")
+                .Length(1, 10).WithMessage("O numero precisa ter entre 1 e 10 caracteres");
+>>>>>>> TesteApi
 
             ValidationResult = Validate(this);
 
             return ValidationResult.IsValid;
 
             #endregion
+<<<<<<< HEAD
+=======
+
+>>>>>>> TesteApi
         }
     }
 }

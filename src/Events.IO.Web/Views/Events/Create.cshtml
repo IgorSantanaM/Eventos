@@ -4,11 +4,19 @@
 <h1>Register New Event</h1>
 
 <form asp-action="Create">
+<<<<<<< HEAD
     <div class="form-horizontal"> 
         <h4>Fill in all the requirements</h4>
         <hr />
 
         <vc:summary />
+=======
+    <div class="form-horizontal">
+        <h4>Fill in all the requirements</h4>
+        <hr />
+
+        <vc:summary></vc:summary>
+>>>>>>> TesteApi
 
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
@@ -29,7 +37,11 @@
         <div class="form-group">
             <label asp-for="LongDescription" class="col-md-2 control-label"></label>
             <div class="col-md-10">
+<<<<<<< HEAD
                 <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
+=======
+               <textarea rows="5" asp-for="LongDescription" class="form-control"></textarea>
+>>>>>>> TesteApi
                 <span asp-validation-for="LongDescription" class="text-danger"></span>
             </div>
         </div>
@@ -54,6 +66,7 @@
             <span asp-validation-for="EndDate" class="text-danger"></span>
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="form-check">
@@ -80,6 +93,26 @@
         </div>
 
 
+=======
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Free" /> @Html.DisplayNameFor(model => model.Free)
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Online" /> @Html.DisplayNameFor(model => model.Online)
+            </label>
+        </div>
+
+>>>>>>> TesteApi
         <div class="form-group">
             <label asp-for="CompanyName" class="control-label"></label>
             <input asp-for="CompanyName" class="form-control" />
@@ -146,8 +179,12 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         
         
+=======
+
+>>>>>>> TesteApi
         <div class="form-group">
             <input type="submit" id="btSubmit" value="Register" class="btn btn-success" />
             <a asp-action="Index" class="btn btn-info">Back to List</a>
@@ -162,7 +199,10 @@
 
     <script>
         EventValidations();
+<<<<<<< HEAD
         AjaxModal();
+=======
+>>>>>>> TesteApi
     </script>
 
     @{
@@ -176,6 +216,7 @@
             {
                 <script>
                     toastr.options.onHidden = function () {
+<<<<<<< HEAD
                         window.location = "http://localhost:5252/my-events";
                     }
                     toastr.options.onClick = function () {
@@ -183,6 +224,15 @@
                     }
                     toastr.options.onCloseClick = function () {
                         window.location = "http://localhost:5252/my-events";
+=======
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    toastr.options.onClick = function () {
+                        window.locations = "http://localhost:/events/myevents"
+                    }
+                    toastr.options.onCloseClick = function () {
+                        window.locations = "http://localhost:/events/myevents"
+>>>>>>> TesteApi
                     }
                     $('#btSubmit').prop("disabled", true);
                 </script>

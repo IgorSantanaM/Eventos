@@ -56,7 +56,11 @@ namespace Events.IO.Infra.Data.Mappings
                .HasForeignKey<Address>(c => c.EventId)
                .IsRequired(false);
 
+<<<<<<< HEAD
             builder 
+=======
+            builder
+>>>>>>> TesteApi
                 .ToTable("Addresses");
         }
     }

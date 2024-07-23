@@ -9,12 +9,22 @@
 <form asp-action="IncludeAddress">
     <div class="modal-body">
         <div class="form-horizontal">
+<<<<<<< HEAD
             <vc:summary />
              
             @Html.Partial("_Address");
              
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Update Address" class="btn btn-success" />
+=======
+            <vc:summary></vc:summary>
+             
+            @Html.Partial("_Address");
+            
+            <div class="modal-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Include Address" class="btn btn-success" />
+>>>>>>> TesteApi
                     <input type="button" class="btn btn-info" value="Close" data-dismiss="modal" />
                 </div>
              </div>

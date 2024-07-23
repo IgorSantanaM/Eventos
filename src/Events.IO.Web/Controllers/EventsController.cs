@@ -58,6 +58,7 @@ namespace Events.IO.Site.Controllers
         [ValidateAntiForgeryToken]
         [Route("new-event")]
         [Authorize(Policy = "CanAddEvents")]
+<<<<<<< HEAD
         public IActionResult Create(EventViewModel eventViewModel)
         {
              if (!ModelState.IsValid) return View(eventViewModel);
@@ -67,6 +68,18 @@ namespace Events.IO.Site.Controllers
                 _eventAppService.Registry(eventViewModel);
 
                 ViewBag.PostReturn = ValidateOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
+=======
+
+        public IActionResult Create(EventViewModel eventViewModel)
+        {
+            if (!ModelState.IsValid) return View(eventViewModel);
+
+            eventViewModel.HostId = HostId;
+            _eventAppService.Registry(eventViewModel);
+
+            ViewBag.PostReturn = ValidOperation() ? "success,Event registred!" : "error,Event was not registred verify the messages!";
+
+>>>>>>> TesteApi
             return View(eventViewModel);
         }
         [Route("edit-event/{id:guid}")]
@@ -100,6 +113,11 @@ namespace Events.IO.Site.Controllers
         [ValidateAntiForgeryToken]
         [Route("edit-event/{id:guid}")]
         [Authorize(Policy = "CanAddEvents")]
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> TesteApi
         public IActionResult Edit(EventViewModel eventViewModel)
         {
             if (ValidateAuthorEvent(eventViewModel))
@@ -111,7 +129,11 @@ namespace Events.IO.Site.Controllers
             eventViewModel.HostId = HostId;
             _eventAppService.Update(eventViewModel);
 
+<<<<<<< HEAD
             ViewBag.PostReturn = ValidateOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
+=======
+            ViewBag.PostReturn = ValidOperation() ? "success,Event updated!" : "error,Event was not updated verify the messages!";
+>>>>>>> TesteApi
 
             if (_eventAppService.GetById(eventViewModel.Id).Online) {
                 eventViewModel.Address = null;
@@ -126,6 +148,10 @@ namespace Events.IO.Site.Controllers
         }
         [Authorize(Policy = "CanAddEvents")]
         [Route("delete-event/{id:guid}")]
+<<<<<<< HEAD
+=======
+
+>>>>>>> TesteApi
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -189,12 +215,19 @@ namespace Events.IO.Site.Controllers
         public IActionResult IncludeAddress(EventViewModel eventViewModel)
         {
             ModelState.Clear();
+<<<<<<< HEAD
 
 
             eventViewModel.Address.EventId = eventViewModel.Id;
             _eventAppService.AddAddress(eventViewModel.Address);
 
             if (ValidateOperation())
+=======
+            eventViewModel.Address.EventId = eventViewModel.Id;
+            _eventAppService.AddAddress(eventViewModel.Address);
+
+            if (ValidOperation())
+>>>>>>> TesteApi
             {
                 string url = Url.Action("GetAddress", "Events", new { id = eventViewModel.Id });
                 return Json(new { success = true, url = url });
@@ -208,10 +241,16 @@ namespace Events.IO.Site.Controllers
         public IActionResult UpdateAddress(EventViewModel eventViewModel)
         {
             ModelState.Clear();
+<<<<<<< HEAD
 
          _eventAppService.UpdateAddress(eventViewModel.Address);
 
             if (ValidateOperation())
+=======
+            _eventAppService.UpdateAddress(eventViewModel.Address);
+
+            if (ValidOperation())
+>>>>>>> TesteApi
             {
                 string url = Url.Action("GetAddress", "Events", new { id = eventViewModel.Id });
                 return Json(new { success = true, url = url });

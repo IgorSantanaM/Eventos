@@ -20,10 +20,17 @@ namespace Events.IO.Web.Controllers
             }
         }
 
+<<<<<<< HEAD
         protected bool ValidateOperation()          
         {
             return (!_notifications.HasNotifications());
         }
         
+=======
+        protected bool ValidOperation()
+        {
+            return (!_notifications.HasNotifications());
+        }
+>>>>>>> TesteApi
     }
 }

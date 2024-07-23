@@ -27,9 +27,15 @@
             CompanyName = companyName;
             HostId = hostId;
             CategoryId = categoryId;
+<<<<<<< HEAD
            
             Address = address;
         }
       public IncludeAddressEventCommand Address { get; private set; }
+=======
+            Address = address;
+        }
+        public IncludeAddressEventCommand Address { get; set; }
+>>>>>>> TesteApi
     }
 }

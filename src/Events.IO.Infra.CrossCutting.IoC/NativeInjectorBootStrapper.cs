@@ -76,7 +76,13 @@ namespace Events.IO.Infra.CrossCutting.IoC
             //Infra - Filters
 
             services.AddScoped<ILogger<GlobalExceptionHandlingFilter>, Logger<GlobalExceptionHandlingFilter>>();
+<<<<<<< HEAD
             services.AddScoped<GlobalExceptionHandlingFilter>();
+=======
+            services.AddScoped<ILogger<GlobalActionLogger>, Logger<GlobalActionLogger>>();
+            services.AddScoped<GlobalExceptionHandlingFilter>();
+            services.AddScoped<GlobalActionLogger>();
+>>>>>>> TesteApi
         }
     }
 }

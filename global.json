@@ -1,6 +1,10 @@
 {
   "projects": [ "src", "tests" ],
   "sdk": {
+<<<<<<< HEAD
     "version": "8.0.203"
+=======
+    "version": "8.0.101"
+>>>>>>> TesteApi
   }
 }

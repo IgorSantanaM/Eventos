@@ -1,4 +1,5 @@
 ﻿@using Events.IO.Application.ViewModels
+<<<<<<< HEAD
 @model EventViewModel
 @{
     var states = (IEnumerable<SelectListItem>)new AddressViewModel().States();
@@ -7,3 +8,11 @@
 
 </select>
  
+=======
+@model Events.IO.Application.ViewModels.EventViewModel
+
+@{
+    var states = (IEnumerable<SelectListItem>)new AddressViewModel().States();
+}
+<select asp-for="Address.State" asp-items="@states" class="form-control"></select>
+>>>>>>> TesteApi

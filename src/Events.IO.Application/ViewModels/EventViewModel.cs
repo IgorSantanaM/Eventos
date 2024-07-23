@@ -14,10 +14,13 @@ namespace Events.IO.Application.ViewModels
         [Key]
         public Guid Id { get; set; }
 
+<<<<<<< HEAD
 
         [Required(ErrorMessage = "The Name is Required")]
         [MinLength(2, ErrorMessage = "The min lenght of the name is {1}")]
         [MaxLength(150, ErrorMessage = "The max lenght of the name is {1}")]
+=======
+>>>>>>> TesteApi
         [Display(Name = "Event name.")]
         public string Name { get; set; }
 
@@ -29,6 +32,10 @@ namespace Events.IO.Application.ViewModels
 
         [Display(Name = "Beginning of the Event")]
         [DataType(DataType.Date)]
+<<<<<<< HEAD
+=======
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+>>>>>>> TesteApi
         public DateTime BeginDate { get;  set; }
 
         [Display(Name = "Ending of the Event")]
@@ -53,5 +60,9 @@ namespace Events.IO.Application.ViewModels
         public CategoryViewModel Category { get; set; }
         public Guid CategoryId { get; set; }
         public Guid HostId { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> TesteApi
     }
 }

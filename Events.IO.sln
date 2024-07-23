@@ -33,7 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Web", "src\Events
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Infra.CrossCutting.Identity", "src\Events.IO.Infra.CrossCutting.Identity\Events.IO.Infra.CrossCutting.Identity.csproj", "{18FB8EFB-6ACA-4A6F-9415-A2DAD5632469}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.IO.Infra.CrossCutting.AspNetFilters", "src\Events.IO.Infra.CrossCutting.AspNetFilters\Events.IO.Infra.CrossCutting.AspNetFilters.csproj", "{7081741C-AA9B-4324-93A9-448CFD14A3A6}"
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.IO.Infra.CrossCutting.AspNetFilters", "src\Events.IO.Infra.CrossCutting.AspNetFilters\Events.IO.Infra.CrossCutting.AspNetFilters.csproj", "{7081741C-AA9B-4324-93A9-448CFD14A3A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events.IO.Services.Api", "src\Events.IO.Services.Api\Events.IO.Services.Api.csproj", "{D03825F0-EF6C-433D-8D92-3C85EE368CC2}"
+>>>>>>> TesteApi
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +83,13 @@ Global
 		{7081741C-AA9B-4324-93A9-448CFD14A3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7081741C-AA9B-4324-93A9-448CFD14A3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7081741C-AA9B-4324-93A9-448CFD14A3A6}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+=======
+		{D03825F0-EF6C-433D-8D92-3C85EE368CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03825F0-EF6C-433D-8D92-3C85EE368CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03825F0-EF6C-433D-8D92-3C85EE368CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03825F0-EF6C-433D-8D92-3C85EE368CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> TesteApi
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +106,10 @@ Global
 		{8C839670-CFD4-4A71-9257-6DBABB1F40A0} = {B104603C-4E49-4C0A-9E5D-78FE70A465E5}
 		{18FB8EFB-6ACA-4A6F-9415-A2DAD5632469} = {D5EF6DBC-BB36-44AD-A9FB-57A3C250EA5C}
 		{7081741C-AA9B-4324-93A9-448CFD14A3A6} = {D5EF6DBC-BB36-44AD-A9FB-57A3C250EA5C}
+<<<<<<< HEAD
+=======
+		{D03825F0-EF6C-433D-8D92-3C85EE368CC2} = {9B6EE428-A1D1-479E-90B5-BD01DE3E7113}
+>>>>>>> TesteApi
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F2F42C1-FB94-4FA2-89C4-3FD500615CE7}

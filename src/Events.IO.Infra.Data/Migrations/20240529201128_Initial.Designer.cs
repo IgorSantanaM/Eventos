@@ -4,6 +4,7 @@ using Events.IO.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Events.IO.Infra.Data.Migrations
 {
     [DbContext(typeof(EventsContext))]
-    partial class EventsContextModelSnapshot : ModelSnapshot
+    [Migration("20240529201128_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,12 +120,6 @@ namespace Events.IO.Infra.Data.Migrations
                     b.Property<DateTime>("BeginDate")
                         .HasColumnType("datetime2");
 
-<<<<<<< HEAD
-                    b.Property<int>("CascadeMode")
-                        .HasColumnType("int");
-
-=======
->>>>>>> TesteApi
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
@@ -236,12 +233,8 @@ namespace Events.IO.Infra.Data.Migrations
 
             modelBuilder.Entity("Events.IO.Domain.DEvents.DEvent", b =>
                 {
-<<<<<<< HEAD
-                    b.Navigation("Address");
-=======
                     b.Navigation("Address")
                         .IsRequired();
->>>>>>> TesteApi
                 });
 
             modelBuilder.Entity("Events.IO.Domain.Hosts.Host", b =>

@@ -39,6 +39,12 @@ namespace Events.IO.Infra.Data.Mappings
             .Ignore(e => e.Tags);
 
 
+<<<<<<< HEAD
+=======
+           builder
+                .Ignore(e => e.CascadeMode);
+
+>>>>>>> TesteApi
             builder
             .ToTable("Events");
 

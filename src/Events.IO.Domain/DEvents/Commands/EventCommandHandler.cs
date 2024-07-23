@@ -25,8 +25,13 @@ namespace Events.IO.Domain.DEvents.Commands
             _user = user;
         }
         public void Handle(RegistryEventCommand message)
+<<<<<<< HEAD
         {
              var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
+=======
+        { 
+            var address = new Address(message.Address.Id, message.Address.PublicPlace, message.Address.Number, message.Address.Complement, message.Address.Neighborhood, message.Address.ZipCode, message.Address.City, message.Address.State, message.Address.EventId.Value); 
+>>>>>>> TesteApi
         
             var devent = DEvent.EventFactory.NewCompletedEvent(
                 message.Id,
@@ -69,7 +74,11 @@ namespace Events.IO.Domain.DEvents.Commands
             if(!devent.Online && devent.Address == null)
             {
                 _bus.RaiseEvent(new DomainNotification(message.MessageType, "You cannot update an event without the address."));
+<<<<<<< HEAD
                 return; 
+=======
+                return;
+>>>>>>> TesteApi
             }
             if (!ValidEvent(devent)) return;
 
@@ -99,11 +108,19 @@ namespace Events.IO.Domain.DEvents.Commands
                 _bus.RaiseEvent(new EventDeletedEvent(message.Id));
             }
         }
+<<<<<<< HEAD
         private bool ValidEvent(DEvent devent)
         {
             if (devent.IsValidate()) return true;
 
             NotifyErrorValidations(devent.ValidationResult);
+=======
+        private bool ValidEvent(DEvent evento)
+        {
+            if (evento.IsValidate()) return true;
+
+            NotifyErrorValidations(evento.ValidationResult);
+>>>>>>> TesteApi
 
             return false;
         }

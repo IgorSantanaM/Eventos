@@ -1,14 +1,23 @@
+<<<<<<< HEAD
 using Events.IO.Domain.Interface;
 using Events.IO.Infra.CrossCutting.AspNetFilters;
 using Events.IO.Infra.CrossCutting.Bus;
 using Events.IO.Infra.CrossCutting.Identity.Data;
 using Events.IO.Infra.CrossCutting.Identity.Models;
+=======
+using Events.IO.Infra.CrossCutting.AspNetFilters;
+using Events.IO.Infra.CrossCutting.Bus;
+using Events.IO.Infra.CrossCutting.Identity.Data;
+>>>>>>> TesteApi
 using Events.IO.Infra.CrossCutting.IoC;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+=======
+>>>>>>> TesteApi
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +44,10 @@ builder.Services.AddLogging();
 builder.Services.AddMvc(options =>
 {
     options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalExceptionHandlingFilter)));
+<<<<<<< HEAD
+=======
+    options.Filters.Add(new ServiceFilterAttribute(typeof(GlobalActionLogger)));
+>>>>>>> TesteApi
 });
 
 var app = builder.Build();
